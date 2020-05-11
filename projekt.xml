@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<tree>
+    <klady>
+        <klad id="" ojciec="">
+            <nazwa></nazwa>
+        </klad>
+        <klad id="" ojciec="">
+            <nazwa></nazwa>
+        </klad>
+        <klad id="" ojciec="">
+            <nazwa></nazwa>
+        </klad>
+        <klad id="" ojciec="">
+            <nazwa></nazwa>
+        </klad>
+        <klad id="" ojciec="">
+            <nazwa></nazwa>
+        </klad>
+    </klady>
+    <gatunki>
+        <gatunek id="" rodzaj="">
+            <nazwa></nazwa>
+        </gatunek>
+        <gatunek id="" rodzaj="">
+            <nazwa></nazwa>
+        </gatunek>
+        <gatunek id="" rodzaj="">
+            <nazwa></nazwa>
+        </gatunek>
+        <gatunek id="" rodzaj="">
+            <nazwa></nazwa>
+        </gatunek>
+        <gatunek id="" rodzaj="">
+            <nazwa></nazwa>
+        </gatunek>
+    </gatunki>
+</tree>
