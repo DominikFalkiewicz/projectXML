@@ -1,37 +1,46 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <tree>
     <klady>
-        <klad id="" ojciec="">
-            <nazwa></nazwa>
+        <klad id="k1" ojciec="null">
+            <nazwa>Ceseasauria</nazwa>
+            <ranga>null</ranga>
         </klad>
-        <klad id="" ojciec="">
-            <nazwa></nazwa>
+        <klad id="k2" ojciec="k1">
+            <nazwa>Eothyrididae</nazwa>
+            <ranga>rodzina</ranga>
         </klad>
-        <klad id="" ojciec="">
-            <nazwa></nazwa>
+        <klad id="k3" ojciec="k1">
+            <nazwa>Ceseidae</nazwa>
+            <ranga>rodzina</ranga>
         </klad>
-        <klad id="" ojciec="">
-            <nazwa></nazwa>
+        <klad id="k4" ojciec="k3">
+            <nazwa>Cotylorhynchus</nazwa>
+            <ranga>rodzaj</ranga>
         </klad>
-        <klad id="" ojciec="">
-            <nazwa></nazwa>
+        <klad id="k5" ojciec="k2">
+            <nazwa>Eothyris</nazwa>
+            <ranga>rodzaj</ranga>
+        </klad>
+        <klad id="k6" ojciec="k2">
+            <nazwa>Oedaleops</nazwa>
+            <ranga>rodzaj</ranga>
         </klad>
     </klady>
     <gatunki>
-        <gatunek id="" rodzaj="">
-            <nazwa></nazwa>
+        <gatunek rodzaj="k5">
+            <nazwa>parkeyi</nazwa>
         </gatunek>
-        <gatunek id="" rodzaj="">
-            <nazwa></nazwa>
+        <gatunek rodzaj="k6">
+            <nazwa>campi</nazwa>
         </gatunek>
-        <gatunek id="" rodzaj="">
-            <nazwa></nazwa>
+        <gatunek rodzaj="k4">
+            <nazwa>romeri</nazwa>
         </gatunek>
-        <gatunek id="" rodzaj="">
-            <nazwa></nazwa>
+        <gatunek rodzaj="k4">
+            <nazwa>bransoni</nazwa>
         </gatunek>
-        <gatunek id="" rodzaj="">
-            <nazwa></nazwa>
+        <gatunek rodzaj="k4">
+            <nazwa>hancocki</nazwa>
         </gatunek>
     </gatunki>
 </tree>
