@@ -73,10 +73,10 @@
         <xsd:sequence>
             <xsd:element name="knazwa" type="knazwa" minOccurs="1" maxOccurs="1"/>
         </xsd:sequence>
-        <xsd:attribute name="id" type="kid"/>
-        <xsd:attribute name="ojciec" type="kid"/>
-        <xsd:attribute name="ranga" type="rid"/>
-        <xsd:attribute name="okresy" type="oid_list"/>
+        <xsd:attribute name="id" type="kid" use="required"/>
+        <xsd:attribute name="ojciec" type="kid" use="optional"/>
+        <xsd:attribute name="ranga" type="rid" use="optional"/>
+        <xsd:attribute name="okresy" type="oid_list" use="required"/>
     </xsd:complexType>
 
     <xsd:simpleType name="oid_list">
@@ -101,7 +101,8 @@
         <xsd:sequence>
             <xsd:element name="gnazwa" type="gnazwa" minOccurs="1" maxOccurs="1"/>
         </xsd:sequence>
-        <xsd:attribute name="rodzaj" type="kid"/>
+        <xsd:attribute name="rodzaj" type="kid" use="required"/>
+        <xsd:attribute name="nisza" type="nid" use="optional"/>
     </xsd:complexType>
 
     <xsd:simpleType name="gnazwa">
@@ -117,14 +118,21 @@
             <xsd:element name="nnazwa" type="xsd:string" minOccurs="1" maxOccurs="1"/>
             <xsd:element name="nopis" type="xsd:string" minOccurs="0" maxOccurs="1"/>
         </xsd:sequence>
+        <xsd:attribute name="id" type="nid" use="required"/>
     </xsd:complexType>
+
+    <xsd:simpleType name="nid">
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="n[1-9][0-9]*"/>
+        </xsd:restriction>
+    </xsd:simpleType>
     
     <!-- RANGA -->
     <xsd:complexType name="ranga">
         <xsd:sequence>
             <xsd:element name="rnazwa" type="rnazwa" minOccurs="1" maxOccurs="1"/>
         </xsd:sequence>
-        <xsd:attribute name="id" type="rid"/>
+        <xsd:attribute name="id" type="rid" use="required"/>
     </xsd:complexType>
 
     <xsd:simpleType name="rid">
@@ -145,8 +153,8 @@
         <xsd:sequence>
             <xsd:element name="onazwa" type="xsd:string" minOccurs="1" maxOccurs="1"/>
         </xsd:sequence>
-        <xsd:attribute name="id" type="oid"/>
-        <xsd:attribute name="skrot" type="xsd:string"/>
+        <xsd:attribute name="id" type="oid" use="required"/>
+        <xsd:attribute name="skrot" type="xsd:string" use="required"/>
     </xsd:complexType>
     
     <xsd:simpleType name="oid">

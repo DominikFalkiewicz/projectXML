@@ -21,11 +21,8 @@
 <!ELEMENT drzewo (%grupy;) >
 ]]>
 
-<!ENTITY % datr1 "xmlns:xsi" >
-<!ENTITY % datr2 "xsi:noNamespaceSchemaLocation" >
-
-<!ATTLIST drzewo %datr1; CDATA #IMPLIED >
-<!ATTLIST drzewo %datr2; CDATA #IMPLIED >
+<!ATTLIST drzewo xmlns:xsi CDATA #IMPLIED >
+<!ATTLIST drzewo xsi:noNamespaceSchemaLocation CDATA #IMPLIED >
 
 <!ELEMENT klady (klad+) >
 <!ELEMENT klad (knazwa) >
