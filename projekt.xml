@@ -1,23 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE tree SYSTEM "projekt.dtd">
-<tree>
+<!DOCTYPE drzewo SYSTEM "projekt.dtd">
+<drzewo>
     <klady>
-        <klad id="k1" >
+        <klad id="k1" okresy="o2">
             <knazwa>Ceseasauria</knazwa>
         </klad>
-        <klad id="k2" ojciec="k1" ranga="r2">
+        <klad id="k2" ojciec="k1" ranga="r2" okresy="o2">
             <knazwa>Eothyrididae</knazwa>
         </klad>
-        <klad id="k3" ojciec="k1" ranga="r2">
+        <klad id="k3" ojciec="k1" ranga="r2" okresy="o1 o2">
             <knazwa>Ceseidae</knazwa>
         </klad>
-        <klad id="k4" ojciec="k3" ranga="r1">
+        <klad id="k4" ojciec="k3" ranga="r1" okresy="o2">
             <knazwa>Cotylorhynchus</knazwa>
         </klad>
-        <klad id="k5" ojciec="k2" ranga="r1">
+        <klad id="k5" ojciec="k2" ranga="r1" okresy="o2">
             <knazwa>Eothyris</knazwa>
         </klad>
-        <klad id="k6" ojciec="k2" ranga="r1">
+        <klad id="k6" ojciec="k2" ranga="r1" okresy="o2">
             <knazwa>Oedaleops</knazwa>
         </klad>
     </klady>
@@ -60,4 +60,12 @@
             <rnazwa>rodzina</rnazwa>
         </ranga>
     </rangi>
-</tree>
+    <okresy>
+        <okres id="o1" skrot="">
+            <onazwa>Karbon</onazwa>
+        </okres>
+        <okres id="o2" skrot="">
+            <onazwa>Perm</onazwa>
+        </okres>
+    </okresy>
+</drzewo>
