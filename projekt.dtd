@@ -39,11 +39,13 @@
 <!ELEMENT gatunek (gnazwa) >
 <!ELEMENT gnazwa (#PCDATA) >
 <!ATTLIST gatunek rodzaj IDREF #REQUIRED >
+<!ATTLIST gatunek nisza IDREF #IMPLIED >
 
 <!ELEMENT nisze (nisza*) >
 <!ELEMENT nisza (nnazwa, nopis?) >
 <!ELEMENT nnazwa (#PCDATA) >
 <!ELEMENT nopis (#PCDATA) >
+<!ATTLIST nisza id ID #REQUIRED >
 
 <!ELEMENT rangi (ranga+) >
 <!ELEMENT ranga (rnazwa) >

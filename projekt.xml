@@ -22,33 +22,33 @@
         </klad>
     </klady>
     <gatunki>
-        <gatunek rodzaj="k5">
+        <gatunek rodzaj="k5" nisza="n3">
             <gnazwa>parkeyi</gnazwa>
         </gatunek>
-        <gatunek rodzaj="k6">
+        <gatunek rodzaj="k6" nisza="n3">
             <gnazwa>campi</gnazwa>
         </gatunek>
-        <gatunek rodzaj="k4">
+        <gatunek rodzaj="k4" nisza="n2">
             <gnazwa>romeri</gnazwa>
         </gatunek>
-        <gatunek rodzaj="k4">
+        <gatunek rodzaj="k4" nisza="n2">
             <gnazwa>bransoni</gnazwa>
         </gatunek>
-        <gatunek rodzaj="k4">
+        <gatunek rodzaj="k4" nisza="n2">
             <gnazwa>hancocki</gnazwa>
         </gatunek>
     </gatunki>
     <nisze>
-        <nisza>
+        <nisza id="n1">
             <nnazwa>Drapieżnik</nnazwa>
             <nopis></nopis>
         </nisza>
-        <nisza>
+        <nisza id="n2">
             <nnazwa>Roślinożerca</nnazwa>
             <nopis></nopis>
         </nisza>
-        <nisza>
-            <nnazwa>Padlinożerca</nnazwa>
+        <nisza id="n3">
+            <nnazwa>Owadożerca</nnazwa>
             <nopis></nopis>
         </nisza>
     </nisze>
