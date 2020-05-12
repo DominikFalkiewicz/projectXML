@@ -1,4 +1,153 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xsd:schema elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:element name="drzewo" type="drzewo"/>
+    
+    <xsd:complexType name="drzewo">
+        <xsd:sequence>
+            <xsd:group ref="grupy"/>
+        </xsd:sequence>
+    </xsd:complexType>
 
-</xs:schema>
+    <!-- GRUPY -->
+    <xsd:group name="grupy">
+        <xsd:choice>
+            <xsd:sequence>
+                <xsd:group ref="organizmy" minOccurs="1" maxOccurs="1"/>
+                <xsd:group ref="dodatki" minOccurs="1" maxOccurs="1"/>
+            </xsd:sequence>
+            <xsd:sequence>
+                <xsd:group ref="dodatki" minOccurs="1" maxOccurs="1"/>
+                <xsd:group ref="organizmy" minOccurs="1" maxOccurs="1"/>
+            </xsd:sequence>
+        </xsd:choice>
+    </xsd:group>
+    
+    <xsd:group name="organizmy">
+        <xsd:sequence>
+            <xsd:element name="klady" type="klady" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="gatunki" type="gatunki" minOccurs="1" maxOccurs="1"/>
+        </xsd:sequence>
+    </xsd:group>
+
+    <xsd:group name="dodatki">
+        <xsd:sequence>
+            <xsd:element name="nisze" type="nisze" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="okresy" type="okresy" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="rangi" type="rangi" minOccurs="1" maxOccurs="1"/>
+        </xsd:sequence>
+    </xsd:group>
+    
+    <!-- PODGRUPY -->
+    <xsd:complexType name="klady">
+        <xsd:sequence>
+            <xsd:element name="klad" type="klad" minOccurs="1" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="gatunki">
+        <xsd:sequence>
+            <xsd:element name="gatunek" type="gatunek" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="nisze">
+        <xsd:sequence>
+            <xsd:element name="nisza" type="nisza" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="rangi">
+        <xsd:sequence>
+            <xsd:element name="ranga" type="ranga" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="okresy">
+        <xsd:sequence>
+            <xsd:element name="okres" type="okres" minOccurs="1" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <!-- KLAD -->
+    <xsd:complexType name="klad">
+        <xsd:sequence>
+            <xsd:element name="knazwa" type="knazwa" minOccurs="1" maxOccurs="1"/>
+        </xsd:sequence>
+        <xsd:attribute name="id" type="kid"/>
+        <xsd:attribute name="ojciec" type="kid"/>
+        <xsd:attribute name="ranga" type="rid"/>
+        <xsd:attribute name="okres" type="oid"/>
+    </xsd:complexType>
+
+    <xsd:simpleType name="kid">
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="k[1-9][0-9]*"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="knazwa">
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="[A-Z][a-z]+"/>
+            <xsd:maxLength value="50"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    
+    <!-- GATUNEK -->
+    <xsd:complexType name="gatunek">
+        <xsd:sequence>
+            <xsd:element name="gnazwa" type="gnazwa" minOccurs="1" maxOccurs="1"/>
+        </xsd:sequence>
+        <xsd:attribute name="rodzaj" type="kid"/>
+    </xsd:complexType>
+
+    <xsd:simpleType name="gnazwa">
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="[a-z]+"/>
+            <xsd:maxLength value="50"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    
+    <!-- NISZA -->
+    <xsd:complexType name="nisza">
+        <xsd:sequence>
+            <xsd:element name="nnazwa" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="nnopis" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <!-- RANGA -->
+    <xsd:complexType name="ranga">
+        <xsd:sequence>
+            <xsd:element name="rnazwa" type="rnazwa" minOccurs="1" maxOccurs="1"/>
+        </xsd:sequence>
+        <xsd:attribute name="id" type="rid"/>
+    </xsd:complexType>
+
+    <xsd:simpleType name="rid">
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="r[1-9][0-9]*"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="rnazwa">
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="[A-Z][a-z]+"/>
+            <xsd:maxLength value="50"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    
+    <!-- OKRES -->
+    <xsd:complexType name="okres">
+        <xsd:sequence>
+            <xsd:element name="onazwa" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+        </xsd:sequence>
+        <xsd:attribute name="id" type="oid"/>
+    </xsd:complexType>
+
+    <xsd:simpleType name="oid">
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="o[1-9][0-9]*"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    
+</xsd:schema>

@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE drzewo SYSTEM "projekt.dtd">
-<drzewo>
+<drzewo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="projekt.xsd">
     <klady>
         <klad id="k1" okresy="o2">
             <knazwa>Ceseasauria</knazwa>
@@ -61,10 +61,10 @@
         </ranga>
     </rangi>
     <okresy>
-        <okres id="o1" skrot="">
+        <okres id="o1" skrot="C">
             <onazwa>Karbon</onazwa>
         </okres>
-        <okres id="o2" skrot="">
+        <okres id="o2" skrot="P">
             <onazwa>Perm</onazwa>
         </okres>
     </okresy>
