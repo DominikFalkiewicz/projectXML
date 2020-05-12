@@ -54,10 +54,10 @@
     </nisze>
     <rangi>
         <ranga id="r1">
-            <rnazwa>rodzaj</rnazwa>
+            <rnazwa>Rodzaj</rnazwa>
         </ranga>
         <ranga id="r2">
-            <rnazwa>rodzina</rnazwa>
+            <rnazwa>Rodzina</rnazwa>
         </ranga>
     </rangi>
     <okresy>

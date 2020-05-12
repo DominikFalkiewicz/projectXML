@@ -32,8 +32,8 @@
     <xsd:group name="dodatki">
         <xsd:sequence>
             <xsd:element name="nisze" type="nisze" minOccurs="1" maxOccurs="1"/>
-            <xsd:element name="okresy" type="okresy" minOccurs="1" maxOccurs="1"/>
             <xsd:element name="rangi" type="rangi" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="okresy" type="okresy" minOccurs="1" maxOccurs="1"/>
         </xsd:sequence>
     </xsd:group>
     
@@ -76,8 +76,12 @@
         <xsd:attribute name="id" type="kid"/>
         <xsd:attribute name="ojciec" type="kid"/>
         <xsd:attribute name="ranga" type="rid"/>
-        <xsd:attribute name="okres" type="oid"/>
+        <xsd:attribute name="okresy" type="oid_list"/>
     </xsd:complexType>
+
+    <xsd:simpleType name="oid_list">
+        <xsd:list itemType="oid"/>
+    </xsd:simpleType>
 
     <xsd:simpleType name="kid">
         <xsd:restriction base="xsd:string">
@@ -111,7 +115,7 @@
     <xsd:complexType name="nisza">
         <xsd:sequence>
             <xsd:element name="nnazwa" type="xsd:string" minOccurs="1" maxOccurs="1"/>
-            <xsd:element name="nnopis" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="nopis" type="xsd:string" minOccurs="0" maxOccurs="1"/>
         </xsd:sequence>
     </xsd:complexType>
     
@@ -142,8 +146,9 @@
             <xsd:element name="onazwa" type="xsd:string" minOccurs="1" maxOccurs="1"/>
         </xsd:sequence>
         <xsd:attribute name="id" type="oid"/>
+        <xsd:attribute name="skrot" type="xsd:string"/>
     </xsd:complexType>
-
+    
     <xsd:simpleType name="oid">
         <xsd:restriction base="xsd:string">
             <xsd:pattern value="o[1-9][0-9]*"/>
