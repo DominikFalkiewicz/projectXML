@@ -1,0 +1,20 @@
+﻿<!ELEMENT ElementName EMPTY>
+<!ELEMENT tree (klady, gatunki, nisze, rangi) >
+<!ELEMENT klady (klad+) >
+<!ELEMENT klad (knazwa) >
+<!ELEMENT knazwa (#PCDATA) >
+<!ATTLIST klad id ID #REQUIRED >
+<!ATTLIST klad ojciec IDREF #IMPLIED >
+<!ATTLIST klad ranga IDREF #IMPLIED >
+<!ELEMENT gatunki (gatunek*) >
+<!ELEMENT gatunek (gnazwa) >
+<!ELEMENT gnazwa (#PCDATA) >
+<!ATTLIST gatunek rodzaj IDREF #REQUIRED >
+<!ELEMENT nisze (nisza*) >
+<!ELEMENT nisza (nnazwa, nopis) >
+<!ELEMENT nnazwa (#PCDATA) >
+<!ELEMENT nopis (#PCDATA) >
+<!ELEMENT rangi (ranga+) >
+<!ELEMENT ranga (rnazwa) >
+<!ELEMENT rnazwa (#PCDATA) >
+<!ATTLIST ranga id ID #REQUIRED >

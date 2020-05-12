@@ -1,46 +1,63 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE tree SYSTEM "projekt.dtd">
 <tree>
     <klady>
-        <klad id="k1" ojciec="null">
-            <nazwa>Ceseasauria</nazwa>
-            <ranga>null</ranga>
+        <klad id="k1" >
+            <knazwa>Ceseasauria</knazwa>
         </klad>
-        <klad id="k2" ojciec="k1">
-            <nazwa>Eothyrididae</nazwa>
-            <ranga>rodzina</ranga>
+        <klad id="k2" ojciec="k1" ranga="r2">
+            <knazwa>Eothyrididae</knazwa>
         </klad>
-        <klad id="k3" ojciec="k1">
-            <nazwa>Ceseidae</nazwa>
-            <ranga>rodzina</ranga>
+        <klad id="k3" ojciec="k1" ranga="r2">
+            <knazwa>Ceseidae</knazwa>
         </klad>
-        <klad id="k4" ojciec="k3">
-            <nazwa>Cotylorhynchus</nazwa>
-            <ranga>rodzaj</ranga>
+        <klad id="k4" ojciec="k3" ranga="r1">
+            <knazwa>Cotylorhynchus</knazwa>
         </klad>
-        <klad id="k5" ojciec="k2">
-            <nazwa>Eothyris</nazwa>
-            <ranga>rodzaj</ranga>
+        <klad id="k5" ojciec="k2" ranga="r1">
+            <knazwa>Eothyris</knazwa>
         </klad>
-        <klad id="k6" ojciec="k2">
-            <nazwa>Oedaleops</nazwa>
-            <ranga>rodzaj</ranga>
+        <klad id="k6" ojciec="k2" ranga="r1">
+            <knazwa>Oedaleops</knazwa>
         </klad>
     </klady>
     <gatunki>
         <gatunek rodzaj="k5">
-            <nazwa>parkeyi</nazwa>
+            <gnazwa>parkeyi</gnazwa>
         </gatunek>
         <gatunek rodzaj="k6">
-            <nazwa>campi</nazwa>
+            <gnazwa>campi</gnazwa>
         </gatunek>
         <gatunek rodzaj="k4">
-            <nazwa>romeri</nazwa>
+            <gnazwa>romeri</gnazwa>
         </gatunek>
         <gatunek rodzaj="k4">
-            <nazwa>bransoni</nazwa>
+            <gnazwa>bransoni</gnazwa>
         </gatunek>
         <gatunek rodzaj="k4">
-            <nazwa>hancocki</nazwa>
+            <gnazwa>hancocki</gnazwa>
         </gatunek>
     </gatunki>
+    <nisze>
+        <nisza>
+            <nnazwa>Drapieżnik</nnazwa>
+            <nopis></nopis>
+        </nisza>
+        <nisza>
+            <nnazwa>Roślinożerca</nnazwa>
+            <nopis></nopis>
+        </nisza>
+        <nisza>
+            <nnazwa>Padlinożerca</nnazwa>
+            <nopis></nopis>
+        </nisza>
+    </nisze>
+    <rangi>
+        <ranga id="r1">
+            <rnazwa>rodzaj</rnazwa>
+        </ranga>
+        <ranga id="r2">
+            <rnazwa>rodzina</rnazwa>
+        </ranga>
+    </rangi>
 </tree>
