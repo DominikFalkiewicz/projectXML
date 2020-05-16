@@ -39,6 +39,7 @@ restrykcje:
 -minimalna dlugosc
 -maksymalna dlugosc
 -minInclusive
+-maxInclusive
 ekspansje:
 -dodanie atrybutu
 atrybuty:
@@ -52,7 +53,6 @@ klucze:
 elementy:
 -minOccurs
 -maxOccurs
-
 -----------MAX(18)
 
 Praktyczne uzycie typow wbudowanych:
@@ -60,5 +60,6 @@ Praktyczne uzycie typow wbudowanych:
 -xsd:date
 -xsd:boolean
 -xsd:decimal
-
+-xsd:unsignedLong
+-xsd:dateTime
 -----------MAX(6)

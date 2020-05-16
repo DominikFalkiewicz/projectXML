@@ -1,16 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE drzewo SYSTEM "projekt.dtd">
 <drzewo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="projekt.xsd">
+    <ostatnia_modyfikacja>2019-12-30T09:14:53</ostatnia_modyfikacja>
     <klady>
         <klad id="k1" okresy="o2">
-            <knazwa>Ceseasauria</knazwa>
+            <knazwa>Caseasauria</knazwa>
             <wymarly>1</wymarly>
         </klad>
         <klad id="k2" ojciec="k1" ranga="r2" okresy="o2">
             <knazwa>Eothyrididae</knazwa>
         </klad>
         <klad id="k3" ojciec="k1" ranga="r2" okresy="o1 o2">
-            <knazwa>Ceseidae</knazwa>
+            <knazwa>Caseidae</knazwa>
         </klad>
         <klad id="k4" ojciec="k3" ranga="r1" okresy="o2">
             <knazwa>Cotylorhynchus</knazwa>
@@ -25,6 +26,7 @@
     <gatunki>
         <gatunek rodzaj="k5" nisza="n3">
             <gnazwa>parkeyi</gnazwa>
+            <najwcz_datowanie>290100000</najwcz_datowanie>
         </gatunek>
         <gatunek rodzaj="k6" nisza="n3">
             <gnazwa>campi</gnazwa>

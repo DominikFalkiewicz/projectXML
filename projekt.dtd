@@ -15,11 +15,13 @@
 <!ENTITY % grupy "%od;|%do;" >
 
 <![%sztywne;[
-<!ELEMENT drzewo (klady, gatunki, nisze, rangi, okresy)
+<!ELEMENT drzewo (ostania_modyfikacja, klady, gatunki, nisze, rangi, okresy)
 ]]>
 <![%luzne;[
-<!ELEMENT drzewo (%grupy;) >
+<!ELEMENT drzewo (ostatnia_modyfikacja, (%grupy;)) >
 ]]>
+
+<!ELEMENT ostatnia_modyfikacja (#PCDATA) >
 
 <!ATTLIST drzewo xmlns:xsi CDATA #IMPLIED >
 <!ATTLIST drzewo xsi:noNamespaceSchemaLocation CDATA #IMPLIED >
@@ -34,9 +36,10 @@
 <!ATTLIST klad okresy IDREFS #REQUIRED >
 
 <!ELEMENT gatunki (gatunek*) >
-<!ELEMENT gatunek (gnazwa, data_odkrycia?) >
+<!ELEMENT gatunek (gnazwa, data_odkrycia?, najwcz_datowanie?) >
 <!ELEMENT gnazwa (#PCDATA) >
 <!ELEMENT data_odkrycia (#PCDATA) >
+<!ELEMENT najwcz_datowanie (#PCDATA) >
 <!ATTLIST gatunek rodzaj IDREF #REQUIRED >
 <!ATTLIST gatunek nisza IDREF #IMPLIED >
 
