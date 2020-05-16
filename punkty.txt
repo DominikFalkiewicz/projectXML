@@ -1,0 +1,64 @@
+﻿DTD:
+
+Praktyczne uzycie wasnosci elementow:
+-element opcjonalny
+-element dowolna liczba
+-element conajmniej jeden
+-element jeden
+-element #PCDATA
+-element lub
+-----------MAX(6)
+
+Praktyczne uzycie wlasnosci atrybutow:
+-ID
+-IDREF
+-IDREFS
+-CDATA
+-NMTOKEN
+-#REQUIRED
+-----------MAX(6)
+-#IMPLIED
+-#FIXED
+
+Praktyczne uzycie wlasnosci encji parametrycznych i sekcji warunkowej:
+-duzo zagniezdzonych encji
+-sekcja warunkowa
+-----------MAX(2+1)
+
+XSD:
+
+Praktyczne uzycie wlasnosci:
+zawartosc:
+-lista
+-ciag
+-wybor
+grupy:
+-grupa elementow
+restrykcje:
+-wzorzec
+-minimalna dlugosc
+-maksymalna dlugosc
+-minInclusive
+ekspansje:
+-dodanie atrybutu
+atrybuty:
+-use required
+-use optional
+-fixed
+klucze:
+-key
+-keyref
+-unique
+elementy:
+-minOccurs
+-maxOccurs
+
+-----------MAX(18)
+
+Praktyczne uzycie typow wbudowanych:
+-xsd:string
+-xsd:date
+-xsd:boolean
+-xsd:decimal
+
+-----------MAX(6)

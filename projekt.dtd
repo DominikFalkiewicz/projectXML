@@ -25,16 +25,18 @@
 <!ATTLIST drzewo xsi:noNamespaceSchemaLocation CDATA #IMPLIED >
 
 <!ELEMENT klady (klad+) >
-<!ELEMENT klad (knazwa) >
+<!ELEMENT klad (knazwa, wymarly?) >
 <!ELEMENT knazwa (#PCDATA) >
+<!ELEMENT wymarly (#PCDATA) >
 <!ATTLIST klad id ID #REQUIRED >
 <!ATTLIST klad ojciec IDREF #IMPLIED >
 <!ATTLIST klad ranga IDREF #IMPLIED >
 <!ATTLIST klad okresy IDREFS #REQUIRED >
 
 <!ELEMENT gatunki (gatunek*) >
-<!ELEMENT gatunek (gnazwa) >
+<!ELEMENT gatunek (gnazwa, data_odkrycia?) >
 <!ELEMENT gnazwa (#PCDATA) >
+<!ELEMENT data_odkrycia (#PCDATA) >
 <!ATTLIST gatunek rodzaj IDREF #REQUIRED >
 <!ATTLIST gatunek nisza IDREF #IMPLIED >
 
@@ -50,7 +52,11 @@
 <!ATTLIST ranga id ID #REQUIRED >
 
 <!ELEMENT okresy (okres+) >
-<!ELEMENT okres (onazwa) >
+<!ELEMENT okres (onazwa, poczatek, koniec) >
 <!ELEMENT onazwa (#PCDATA) >
+<!ELEMENT poczatek (#PCDATA) >
+<!ELEMENT koniec (#PCDATA) >
 <!ATTLIST okres id ID #REQUIRED >
 <!ATTLIST okres skrot NMTOKEN #REQUIRED >
+<!ATTLIST poczatek sufiks CDATA #FIXED "miliona lat temu" >
+<!ATTLIST koniec sufiks CDATA #FIXED "miliona lat temu" >

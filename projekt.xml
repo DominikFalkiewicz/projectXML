@@ -4,6 +4,7 @@
     <klady>
         <klad id="k1" okresy="o2">
             <knazwa>Ceseasauria</knazwa>
+            <wymarly>1</wymarly>
         </klad>
         <klad id="k2" ojciec="k1" ranga="r2" okresy="o2">
             <knazwa>Eothyrididae</knazwa>
@@ -30,12 +31,15 @@
         </gatunek>
         <gatunek rodzaj="k4" nisza="n2">
             <gnazwa>romeri</gnazwa>
+            <data_odkrycia>1937-02-01</data_odkrycia>
         </gatunek>
         <gatunek rodzaj="k4" nisza="n2">
             <gnazwa>bransoni</gnazwa>
+            <data_odkrycia>1962-12-29</data_odkrycia>
         </gatunek>
         <gatunek rodzaj="k4" nisza="n2">
             <gnazwa>hancocki</gnazwa>
+            <data_odkrycia>1953-04-12</data_odkrycia>
         </gatunek>
     </gatunki>
     <nisze>
@@ -63,9 +67,13 @@
     <okresy>
         <okres id="o1" skrot="C">
             <onazwa>Karbon</onazwa>
+            <poczatek sufiks="miliona lat temu">358.9</poczatek>
+            <koniec sufiks="miliona lat temu">298.9</koniec>
         </okres>
         <okres id="o2" skrot="P">
             <onazwa>Perm</onazwa>
+            <poczatek sufiks="miliona lat temu">298.9</poczatek>
+            <koniec sufiks="miliona lat temu">252.17</koniec>
         </okres>
     </okresy>
 </drzewo>

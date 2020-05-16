@@ -1,12 +1,48 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xsd:schema elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-    <xsd:element name="drzewo" type="drzewo"/>
-    
-    <xsd:complexType name="drzewo">
-        <xsd:sequence>
-            <xsd:group ref="grupy"/>
-        </xsd:sequence>
-    </xsd:complexType>
+    <xsd:element name="drzewo">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:group ref="grupy"/>
+            </xsd:sequence>
+        </xsd:complexType>
+        <xsd:key name="id_klad">
+            <xsd:selector xpath="./klady/klad"/>
+            <xsd:field xpath="@id"/>
+        </xsd:key>
+        <xsd:key name="id_nisza">
+            <xsd:selector xpath="./nisze/nisza"/>
+            <xsd:field xpath="@id"/>
+        </xsd:key>
+        <xsd:key name="id_ranga">
+            <xsd:selector xpath="./rangi/ranga"/>
+            <xsd:field xpath="@id"/>
+        </xsd:key>
+        <xsd:key name="id_okres">
+            <xsd:selector xpath="./okresy/okres"/>
+            <xsd:field xpath="@id"/>
+        </xsd:key>
+        <xsd:keyref name="ojciec_klad" refer="id_klad">
+            <xsd:selector xpath="./klady/klad"/>
+            <xsd:field xpath="@ojciec"/>
+        </xsd:keyref>
+        <xsd:keyref name="rodzaj_gatunek" refer="id_klad">
+            <xsd:selector xpath="./gatunki/gatunek"/>
+            <xsd:field xpath="@rodzaj"/>
+        </xsd:keyref>
+        <xsd:keyref name="nisza_gatunek" refer="id_nisza">
+            <xsd:selector xpath="./gatunki/gatunek"/>
+            <xsd:field xpath="@nisza"/>
+        </xsd:keyref>
+        <xsd:keyref name="ranga_klad" refer="id_ranga">
+            <xsd:selector xpath="./klady/klad"/>
+            <xsd:field xpath="@ranga"/>
+        </xsd:keyref>
+        <xsd:unique name="skrot_okres">
+            <xsd:selector xpath="./okresy/okres"/>
+            <xsd:field xpath="@skrot"/>
+        </xsd:unique>
+    </xsd:element>
 
     <!-- GRUPY -->
     <xsd:group name="grupy">
@@ -72,6 +108,7 @@
     <xsd:complexType name="klad">
         <xsd:sequence>
             <xsd:element name="knazwa" type="knazwa" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="wymarly" type="xsd:boolean" minOccurs="0" maxOccurs="1"/>
         </xsd:sequence>
         <xsd:attribute name="id" type="kid" use="required"/>
         <xsd:attribute name="ojciec" type="kid" use="optional"/>
@@ -79,8 +116,14 @@
         <xsd:attribute name="okresy" type="oid_list" use="required"/>
     </xsd:complexType>
 
-    <xsd:simpleType name="oid_list">
+    <xsd:simpleType name="oid_list_base">
         <xsd:list itemType="oid"/>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="oid_list">
+        <xsd:restriction base="oid_list_base">
+            <xsd:minLength value="1"/>
+        </xsd:restriction>
     </xsd:simpleType>
 
     <xsd:simpleType name="kid">
@@ -92,6 +135,7 @@
     <xsd:simpleType name="knazwa">
         <xsd:restriction base="xsd:string">
             <xsd:pattern value="[A-Z][a-z]+"/>
+            <xsd:minLength value="3"/>
             <xsd:maxLength value="50"/>
         </xsd:restriction>
     </xsd:simpleType>
@@ -100,6 +144,7 @@
     <xsd:complexType name="gatunek">
         <xsd:sequence>
             <xsd:element name="gnazwa" type="gnazwa" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="data_odkrycia" type="xsd:date" minOccurs="0" maxOccurs="1"/>
         </xsd:sequence>
         <xsd:attribute name="rodzaj" type="kid" use="required"/>
         <xsd:attribute name="nisza" type="nid" use="optional"/>
@@ -108,6 +153,7 @@
     <xsd:simpleType name="gnazwa">
         <xsd:restriction base="xsd:string">
             <xsd:pattern value="[a-z]+"/>
+            <xsd:minLength value="3"/>
             <xsd:maxLength value="50"/>
         </xsd:restriction>
     </xsd:simpleType>
@@ -144,6 +190,7 @@
     <xsd:simpleType name="rnazwa">
         <xsd:restriction base="xsd:string">
             <xsd:pattern value="[A-Z][a-z]+"/>
+            <xsd:minLength value="3"/>
             <xsd:maxLength value="50"/>
         </xsd:restriction>
     </xsd:simpleType>
@@ -152,6 +199,8 @@
     <xsd:complexType name="okres">
         <xsd:sequence>
             <xsd:element name="onazwa" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="poczatek" type="mya" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="koniec" type="mya" minOccurs="1" maxOccurs="1"/>
         </xsd:sequence>
         <xsd:attribute name="id" type="oid" use="required"/>
         <xsd:attribute name="skrot" type="xsd:string" use="required"/>
@@ -162,5 +211,19 @@
             <xsd:pattern value="o[1-9][0-9]*"/>
         </xsd:restriction>
     </xsd:simpleType>
+
+    <xsd:simpleType name="mya_base">
+        <xsd:restriction base="xsd:decimal">
+            <xsd:minInclusive value="0"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:complexType name="mya">
+        <xsd:simpleContent>
+            <xsd:extension base="mya_base">
+                <xsd:attribute name="sufiks" type="xsd:string" fixed="miliona lat temu" use="required"/>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
     
 </xsd:schema>
