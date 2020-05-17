@@ -1,5 +1,138 @@
-﻿.TestClass {
-    color: Black;
-    background-color: White;
-    text-align: left;
+﻿drzewo {
+    display: block;
+    background-image: url(./obrazki/drzewo.jpg);
+}
+drzewo::before{
+    content: "Drzewo Życia";
+    display: block;
+    font-weight: bolder;
+    font-size: large;
+    text-transform: uppercase;
+    text-align: center;
+    background: lightgreen;
+}
+drzewo>ostatnia_modyfikacja{
+    background: lightgreen;
+}
+drzewo>ostatnia_modyfikacja::before {
+    content: "Ostatnio zmodyfikowano: ";
+}
+
+
+/*Klady:*/
+
+klady {
+	display: block;
+    counter-reset: klady;
+	background: lightgrey;
+	border: 1px solid black;
+	margin: 20px;
+}
+klady::before{
+    content: "Klady:";
+    font-weight: bold;
+    font-size: medium;
+    text-transform: uppercase;
+}
+klad {
+	display: block;
+	border: 1px solid black;
+	background: yellow;
+	border-collapse: separate;
+	margin: 5px;
+}
+klady>klad::before{
+    content: counter(klady, upper-roman) ".";
+    counter-increment: klady;
+}
+klad[wymarly="1"]>knazwa::after {
+	content: "\271D";
+}
+klad>knazwa::before {
+	content: "Klad: ";
+}
+klad[ranga="r1"]>knazwa::before {
+	content: "Rodzaj: ";
+}
+klad[ranga="r2"]>knazwa::before {
+	content: "Rodzina: ";
+}
+klad:hover{
+    background: white;
+}
+
+
+/*Gatunki*/
+
+gatunki {
+	display: block;
+	background: lightgrey;
+	border: 1px solid black;
+	margin: 20px;
+}
+gatunki::before{
+    content: "Gatunki:";
+    font-weight: bold;
+    font-size: medium;
+    text-transform: uppercase;
+}
+gatunek {
+	display: block;
+	border: 1px solid black;
+	background: lightblue;
+	border-collapse: separate;
+	margin: 5px;
+}
+gatunek>gnazwa{
+	display: block;
+	border: 1px solid white;
+	background: white;
+    font-style: italic;
+    text-align: center;
+    padding: 2px;
+}
+gatunek>data_odkrycia::before{
+    content: "Data odkrycia: "
+}
+gatunek[rodzaj="k4"]::before {
+    content: url(./obrazki/Cotylorhynchus.jpg);
+}
+gatunek[rodzaj="k5"]::before {
+    content: url(./obrazki/Eothyris.jpg);
+}
+gatunek[rodzaj="k6"]::before {
+    content: url(./obrazki/Oedaleops.jpg);
+}
+gatunek[nisza="n1"]>gnazwa::after {
+    content: url(./obrazki/drapieżnik.png);
+    float: right;
+}
+gatunek[nisza="n2"]>gnazwa::after {
+    content: url(./obrazki/roślinożerca.png);
+    float: right;
+}
+gatunek[nisza="n3"]>gnazwa::after {
+    content: url(./obrazki/owadożerca.png);
+    float: right;
+}
+gatunek[rodzaj="k4"]>gnazwa::before {
+    content: "Cotylorhynchus ";
+    font-style: italic;
+}
+gatunek[rodzaj="k5"]>gnazwa::before {
+    content: "Eothyris ";
+    font-style: italic;
+}
+gatunek[rodzaj="k6"]>gnazwa::before {
+    content: "Oedaleops ";
+    font-style: italic;
+}
+gatunek>najwcz_datowanie {
+	display: block;
+}
+gatunek>najwcz_datowanie::before {
+    content: "Najwcześniejsze datowanie: ";
+}
+gatunek>najwcz_datowanie::after {
+    content: " lat temu.";
 }

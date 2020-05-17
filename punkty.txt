@@ -63,3 +63,22 @@ Praktyczne uzycie typow wbudowanych:
 -xsd:unsignedLong
 -xsd:dateTime
 -----------MAX(6)
+
+CSS:
+estetyka:
+-----------MAX(-)
+
+rzeczy z zajec:
+-dodanie zawartosic przed/po elemencie
+-style tekstu
+-style granic
+-orientacja elementow
+-wstawienie obrazka
+-zmiana koloru po najechaniu
+-----------MAX(6)
+-warunkowanie po atrybutach
+
+rzeczy spoza zajec:
+-automatyczna numeracja
+
+-----------MAX(4)

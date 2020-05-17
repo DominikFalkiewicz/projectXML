@@ -27,13 +27,13 @@
 <!ATTLIST drzewo xsi:noNamespaceSchemaLocation CDATA #IMPLIED >
 
 <!ELEMENT klady (klad+) >
-<!ELEMENT klad (knazwa, wymarly?) >
+<!ELEMENT klad (knazwa) >
 <!ELEMENT knazwa (#PCDATA) >
-<!ELEMENT wymarly (#PCDATA) >
 <!ATTLIST klad id ID #REQUIRED >
 <!ATTLIST klad ojciec IDREF #IMPLIED >
 <!ATTLIST klad ranga IDREF #IMPLIED >
 <!ATTLIST klad okresy IDREFS #REQUIRED >
+<!ATTLIST klad wymarly CDATA #REQUIRED >
 
 <!ELEMENT gatunki (gatunek*) >
 <!ELEMENT gatunek (gnazwa, data_odkrycia?, najwcz_datowanie?) >

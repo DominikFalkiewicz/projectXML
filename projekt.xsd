@@ -109,12 +109,12 @@
     <xsd:complexType name="klad">
         <xsd:sequence>
             <xsd:element name="knazwa" type="knazwa" minOccurs="1" maxOccurs="1"/>
-            <xsd:element name="wymarly" type="xsd:boolean" minOccurs="0" maxOccurs="1"/>
         </xsd:sequence>
         <xsd:attribute name="id" type="kid" use="required"/>
         <xsd:attribute name="ojciec" type="kid" use="optional"/>
         <xsd:attribute name="ranga" type="rid" use="optional"/>
         <xsd:attribute name="okresy" type="oid_list" use="required"/>
+        <xsd:attribute name="wymarly" type="xsd:boolean" use="required"/>
     </xsd:complexType>
 
     <xsd:simpleType name="oid_list_base">

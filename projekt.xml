@@ -1,25 +1,25 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/css" href="projekt.css"?>
 <!DOCTYPE drzewo SYSTEM "projekt.dtd">
 <drzewo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="projekt.xsd">
     <ostatnia_modyfikacja>2019-12-30T09:14:53</ostatnia_modyfikacja>
     <klady>
-        <klad id="k1" okresy="o2">
+        <klad id="k1" okresy="o2" wymarly="1">
             <knazwa>Caseasauria</knazwa>
-            <wymarly>1</wymarly>
         </klad>
-        <klad id="k2" ojciec="k1" ranga="r2" okresy="o2">
+        <klad id="k2" ojciec="k1" ranga="r2" okresy="o2" wymarly="1">
             <knazwa>Eothyrididae</knazwa>
         </klad>
-        <klad id="k3" ojciec="k1" ranga="r2" okresy="o1 o2">
+        <klad id="k3" ojciec="k1" ranga="r2" okresy="o1 o2" wymarly="1">
             <knazwa>Caseidae</knazwa>
         </klad>
-        <klad id="k4" ojciec="k3" ranga="r1" okresy="o2">
+        <klad id="k4" ojciec="k3" ranga="r1" okresy="o2" wymarly="1">
             <knazwa>Cotylorhynchus</knazwa>
         </klad>
-        <klad id="k5" ojciec="k2" ranga="r1" okresy="o2">
+        <klad id="k5" ojciec="k2" ranga="r1" okresy="o2" wymarly="1">
             <knazwa>Eothyris</knazwa>
         </klad>
-        <klad id="k6" ojciec="k2" ranga="r1" okresy="o2">
+        <klad id="k6" ojciec="k2" ranga="r1" okresy="o2" wymarly="1">
             <knazwa>Oedaleops</knazwa>
         </klad>
     </klady>
