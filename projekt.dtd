@@ -42,6 +42,8 @@
 <!ELEMENT najwcz_datowanie (#PCDATA) >
 <!ATTLIST gatunek rodzaj IDREF #REQUIRED >
 <!ATTLIST gatunek nisza IDREF #IMPLIED >
+<!ATTLIST gatunek img CDATA #REQUIRED >
+<!ATTLIST gatunek imf CDATA #IMPLIED >
 
 <!ELEMENT nisze (nisza*) >
 <!ELEMENT nisza (nnazwa, nopis?) >

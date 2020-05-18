@@ -24,23 +24,23 @@
         </klad>
     </klady>
     <gatunki>
-        <gatunek rodzaj="k5" nisza="n1">
+        <gatunek rodzaj="k5" nisza="n1" img="./obrazki/Eothyris.jpg" imf="./obrazki/EothyrisF.jpg">
             <gnazwa>parkeyi</gnazwa>
             <data_odkrycia>1937-06-21</data_odkrycia>
             <najwcz_datowanie>290100000</najwcz_datowanie>
         </gatunek>
-        <gatunek rodzaj="k6" nisza="n3">
+        <gatunek rodzaj="k6" nisza="n3" img="./obrazki/Oedaleops.jpg" imf="./obrazki/OedaleopsF.jpg">
             <gnazwa>campi</gnazwa>
         </gatunek>
-        <gatunek rodzaj="k4" nisza="n2">
+        <gatunek rodzaj="k4" nisza="n2" img="./obrazki/Cotylorhynchus.jpg" imf="./obrazki/CotylorhynchusF.jpg">
             <gnazwa>romeri</gnazwa>
             <data_odkrycia>1937-02-01</data_odkrycia>
         </gatunek>
-        <gatunek rodzaj="k4" nisza="n2">
+        <gatunek rodzaj="k4" nisza="n2" img="./obrazki/Cotylorhynchus.jpg" imf="./obrazki/CotylorhynchusF.jpg">
             <gnazwa>bransoni</gnazwa>
             <data_odkrycia>1962-12-29</data_odkrycia>
         </gatunek>
-        <gatunek rodzaj="k4" nisza="n2">
+        <gatunek rodzaj="k4" nisza="n2" img="./obrazki/Cotylorhynchus.jpg" imf="./obrazki/CotylorhynchusF.jpg">
             <gnazwa>hancocki</gnazwa>
             <data_odkrycia>1953-04-12</data_odkrycia>
         </gatunek>

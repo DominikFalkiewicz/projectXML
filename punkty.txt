@@ -34,10 +34,12 @@ zawartosc:
 -wybor
 grupy:
 -grupa elementow
+-grupa atrybutow
 restrykcje:
 -wzorzec
 -minimalna dlugosc/maksymalna dlugosc
 -minInclusive/maxInclusive
+-wybor
 ekspansje:
 -dodanie atrybutu
 atrybuty:
@@ -50,7 +52,7 @@ klucze:
 -unique
 elementy:
 -minOccurs/maxOccurs
-
+-default
 -----------MAX(18)
 
 Praktyczne uzycie typow wbudowanych:
@@ -79,9 +81,7 @@ rzeczy z zajec:
 
 rzeczy spoza zajec:
 -automatyczna numeracja
--wstawienie znaku unicode
 -reakcja na klikniecie
--zmienne
 -cien
 -zoom
 -----------MAX(4)

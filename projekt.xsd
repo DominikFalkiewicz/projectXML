@@ -104,11 +104,24 @@
             <xsd:element name="okres" type="okres" minOccurs="1" maxOccurs="unbounded"/>
         </xsd:sequence>
     </xsd:complexType>
+
+    <!-- OBRAZKI -->
+    
+    <xsd:attributeGroup name="obrazki">
+        <xsd:attribute name="img" type="imi" use="required"/>
+        <xsd:attribute name="imf" type="imi" use="optional"/>
+    </xsd:attributeGroup>
+
+    <xsd:simpleType name="imi">
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value=".*(\.jpg|\.png)"/>
+        </xsd:restriction>
+    </xsd:simpleType>
     
     <!-- KLAD -->
     <xsd:complexType name="klad">
         <xsd:sequence>
-            <xsd:element name="knazwa" type="knazwa" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="knazwa" type="knazwa" default="Klad" minOccurs="1" maxOccurs="1"/>
         </xsd:sequence>
         <xsd:attribute name="id" type="kid" use="required"/>
         <xsd:attribute name="ojciec" type="kid" use="optional"/>
@@ -150,6 +163,7 @@
         </xsd:sequence>
         <xsd:attribute name="rodzaj" type="kid" use="required"/>
         <xsd:attribute name="nisza" type="nid" use="optional"/>
+        <xsd:attributeGroup ref="obrazki"/>
     </xsd:complexType>
 
     <xsd:simpleType name="gnazwa">
@@ -206,13 +220,30 @@
     <!-- OKRES -->
     <xsd:complexType name="okres">
         <xsd:sequence>
-            <xsd:element name="onazwa" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="onazwa" type="onazwa" minOccurs="1" maxOccurs="1"/>
             <xsd:element name="poczatek" type="mya" minOccurs="1" maxOccurs="1"/>
             <xsd:element name="koniec" type="mya" minOccurs="1" maxOccurs="1"/>
         </xsd:sequence>
         <xsd:attribute name="id" type="oid" use="required"/>
         <xsd:attribute name="skrot" type="xsd:string" use="required"/>
     </xsd:complexType>
+
+    <xsd:simpleType name="onazwa">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="Prekambr"/>
+            <xsd:enumeration value="Kambr"/>
+            <xsd:enumeration value="Ordowik"/>
+            <xsd:enumeration value="Sylur"/>
+            <xsd:enumeration value="Dewon"/>
+            <xsd:enumeration value="Karbon"/>
+            <xsd:enumeration value="Perm"/>
+            <xsd:enumeration value="Trias"/>
+            <xsd:enumeration value="Jura"/>
+            <xsd:enumeration value="Kreda"/>
+            <xsd:enumeration value="Paleogen"/>
+            <xsd:enumeration value="Neogen"/>
+        </xsd:restriction>
+    </xsd:simpleType>
     
     <xsd:simpleType name="oid">
         <xsd:restriction base="xsd:string">

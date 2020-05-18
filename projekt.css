@@ -1,5 +1,4 @@
 ﻿drzewo {
-    --group-bg: lightgrey;
     display: block;
     background-image: url(./obrazki/drzewo.jpg);
 }
@@ -26,7 +25,7 @@ drzewo>ostatnia_modyfikacja::before {
 klady {
 	display: block;
     counter-reset: klady;
-	background: var(--group-bg);
+	background: lightgrey;
 	border: 1px solid black;
 	margin: 20px;
     padding: 10px;
@@ -68,7 +67,7 @@ klad:hover{
 
 gatunki {
 	display: block;
-	background: var(--group-bg);
+	background: lightgrey;
 	border: 1px solid black;
 	margin: 20px;
     padding: 10px;
@@ -84,7 +83,6 @@ gatunki::before{
     text-transform: uppercase;
 }
 gatunek {
-    --geh: 20px;
 	display: inline-block;
 	border: 1px solid black;
 	background: lightblue;
@@ -120,7 +118,7 @@ gatunek>gnazwa{
 	background: white;
     font-style: italic;
     text-align: center;
-    height: var(--geh);
+    height: 20px;
     padding: 10px;
 	border-top: 1px solid black;
 }
@@ -150,7 +148,7 @@ gatunek[rodzaj="k6"]>gnazwa::before {
 }
 gatunek>data_odkrycia {
 	display: block;
-    height: var(--geh);
+    height: 20px;
 	border-top: 1px solid black;
 }
 gatunek>data_odkrycia::before{
@@ -161,7 +159,7 @@ gatunek>data_odkrycia::after {
 }
 gatunek>najwcz_datowanie {
 	display: block;
-    height: var(--geh);
+    height: 20px;
 	border-top: 1px solid black;
 }
 gatunek>najwcz_datowanie::before {
@@ -175,7 +173,7 @@ gatunek>najwcz_datowanie::after {
 
 nisze {
     display: block;
-	background: var(--group-bg);
+	background: lightgrey;
 	border: 1px solid black;
 	margin: 20px;
     padding: 10px;
@@ -243,7 +241,7 @@ rangi {
 
 okresy {
     display: block;
-    background: var(--group-bg);
+    background: lightgrey;
     border: 1px solid black;
     margin: 20px;
     padding: 10px;
