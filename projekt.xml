@@ -4,7 +4,7 @@
 <drzewo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="projekt.xsd">
     <ostatnia_modyfikacja>2019-12-30T09:14:53</ostatnia_modyfikacja>
     <klady>
-        <klad id="k1" okresy="o2" wymarly="1">
+        <klad id="k1" okresy="o1 o2" wymarly="1">
             <knazwa>Caseasauria</knazwa>
         </klad>
         <klad id="k2" ojciec="k1" ranga="r2" okresy="o2" wymarly="1">

@@ -11,6 +11,7 @@ drzewo::before{
     text-transform: uppercase;
     text-align: center;
     background: lightgreen;
+    text-shadow: 2px 2px 2px;
 }
 drzewo>ostatnia_modyfikacja{
     background: lightgreen;
@@ -71,6 +72,9 @@ gatunki {
 	border: 1px solid black;
 	margin: 20px;
     padding: 10px;
+}
+gatunek:hover{
+    transform: scale(1.2);
 }
 gatunki::before{
     content: "Gatunki:";
@@ -190,6 +194,9 @@ nisza {
     width: 300px;
     vertical-align: top;
 }
+nisza:hover{
+    transform: scale(1.2);
+}
 nisza[id="n1"]{
     background: coral;
 }
@@ -241,7 +248,6 @@ okresy {
     margin: 20px;
     padding: 10px;
 }
-
 okresy::before {
     content: "Okresy:";
     display: block;
@@ -249,14 +255,15 @@ okresy::before {
     font-weight: bold;
     text-transform: uppercase;
 }
-
 okres {
     display: inline-block;
     background: pink;
     border: 1px solid black;
     margin: 5px;
 }
-
+okres:hover{
+    transform: scale(1.2);
+}
 okres>onazwa {
     display: block;
     background: white;
@@ -265,15 +272,12 @@ okres>onazwa {
     height: 20px;
     border-bottom: 1px solid black; 
 }
-
 okres>poczatek::before {
     content: "Czas trwania: "
 }
-
 okres>poczatek::after {
     content: " do "
 }
-
 okres>koniec::after {
     content: " miliona lat temu."
 }

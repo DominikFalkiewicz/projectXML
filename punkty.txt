@@ -36,10 +36,8 @@ grupy:
 -grupa elementow
 restrykcje:
 -wzorzec
--minimalna dlugosc
--maksymalna dlugosc
--minInclusive
--maxInclusive
+-minimalna dlugosc/maksymalna dlugosc
+-minInclusive/maxInclusive
 ekspansje:
 -dodanie atrybutu
 atrybuty:
@@ -51,8 +49,8 @@ klucze:
 -keyref
 -unique
 elementy:
--minOccurs
--maxOccurs
+-minOccurs/maxOccurs
+
 -----------MAX(18)
 
 Praktyczne uzycie typow wbudowanych:
@@ -84,4 +82,6 @@ rzeczy spoza zajec:
 -wstawienie znaku unicode
 -reakcja na klikniecie
 -zmienne
+-cien
+-zoom
 -----------MAX(4)
