@@ -27,6 +27,7 @@ klady {
 	background: lightgrey;
 	border: 1px solid black;
 	margin: 20px;
+    padding: 10px;
 }
 klady::before{
     content: "Klady:";
@@ -171,6 +172,7 @@ nisze {
 	background: lightgrey;
 	border: 1px solid black;
 	margin: 20px;
+    padding: 10px;
 }
 nisze::before {
     content: "Nisze:";
@@ -184,6 +186,7 @@ nisza {
 	border: 1px solid black;
     margin: 5px;
     width: 300px;
+    vertical-align: top;
 }
 nisza[id="n1"]{
     background: coral;
@@ -219,4 +222,56 @@ nisza>nopis {
 }
 nisza>nopis::before {
     content: "Opis: ";
+}
+
+/*Rangi*/
+
+rangi {
+    display: none;
+}
+
+/*Okresy*/
+
+okresy {
+    display: block;
+    background: lightgrey;
+    border: 1px solid black;
+    margin: 20px;
+    padding: 10px;
+}
+
+okresy::before {
+    content: "Okresy:";
+    display: block;
+    font-size: medium;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+okres {
+    display: inline-block;
+    background: pink;
+    border: 1px solid black;
+    margin: 5px;
+}
+
+okres>onazwa {
+    display: block;
+    background: white;
+    text-transform: uppercase;
+    text-align: center;
+    height: 20px;
+    border-bottom: 1px solid black; 
+}
+
+okres>poczatek::before {
+    content: "Czas trwania: "
+}
+
+okres>poczatek::after {
+    content: " do "
+}
+
+okres>koniec::after {
+    content: " miliona lat temu."
 }
