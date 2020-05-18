@@ -83,5 +83,5 @@ rzeczy spoza zajec:
 -automatyczna numeracja
 -wstawienie znaku unicode
 -reakcja na klikniecie
-
+-zmienne
 -----------MAX(4)
