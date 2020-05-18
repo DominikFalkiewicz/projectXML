@@ -38,7 +38,6 @@ klad {
 	display: block;
 	border: 1px solid black;
 	background: yellow;
-	border-collapse: separate;
 	margin: 5px;
 }
 klady>klad::before{
@@ -69,45 +68,60 @@ gatunki {
 	background: lightgrey;
 	border: 1px solid black;
 	margin: 20px;
+    padding: 10px;
 }
 gatunki::before{
     content: "Gatunki:";
+	display: block;
     font-weight: bold;
     font-size: medium;
     text-transform: uppercase;
 }
 gatunek {
-	display: block;
+	display: inline-block;
 	border: 1px solid black;
 	background: lightblue;
-	border-collapse: separate;
-	margin: 5px;
+    width: 400px;
+    height: 83px;
+    margin: 10px;
+    background-repeat: no-repeat;
+    background-position: left top;
+    background-size: 100% auto;
+    padding-top: 350px;
+    overflow: hidden;
+}
+gatunek[rodzaj="k4"] {
+    background-image: url(./obrazki/Cotylorhynchus.jpg);
+}
+gatunek[rodzaj="k4"]:active {
+    background-image: url(./obrazki/CotylorhynchusF.jpg);
+}
+gatunek[rodzaj="k5"] {
+    background-image: url(./obrazki/Eothyris.jpg);
+}
+gatunek[rodzaj="k5"]:active {
+    background-image: url(./obrazki/EothyrisF.jpg);
+}
+gatunek[rodzaj="k6"] {
+    background-image: url(./obrazki/Oedaleops.jpg);
+}
+gatunek[rodzaj="k6"]:active {
+    background-image: url(./obrazki/OedaleopsF.jpg);
 }
 gatunek>gnazwa{
 	display: block;
-	border: 1px solid white;
 	background: white;
     font-style: italic;
     text-align: center;
-    padding: 2px;
-}
-gatunek>data_odkrycia::before{
-    content: "Data odkrycia: "
-}
-gatunek[rodzaj="k4"]::before {
-    content: url(./obrazki/Cotylorhynchus.jpg);
-}
-gatunek[rodzaj="k5"]::before {
-    content: url(./obrazki/Eothyris.jpg);
-}
-gatunek[rodzaj="k6"]::before {
-    content: url(./obrazki/Oedaleops.jpg);
+    height: 20px;
+    padding: 10px;
+	border-top: 1px solid black;
 }
 gatunek[nisza="n1"]>gnazwa::after {
     content: url(./obrazki/drapieżnik.png);
     float: right;
 }
-gatunek[nisza="n2"]>gnazwa::after {
+gatunek[nisza="n2"]>gnazwa:after {
     content: url(./obrazki/roślinożerca.png);
     float: right;
 }
@@ -127,8 +141,21 @@ gatunek[rodzaj="k6"]>gnazwa::before {
     content: "Oedaleops ";
     font-style: italic;
 }
+gatunek>data_odkrycia {
+	display: block;
+    height: 20px;
+	border-top: 1px solid black;
+}
+gatunek>data_odkrycia::before{
+    content: "Data odkrycia: "
+}
+gatunek>data_odkrycia::after {
+    content: ".";
+}
 gatunek>najwcz_datowanie {
 	display: block;
+    height: 20px;
+	border-top: 1px solid black;
 }
 gatunek>najwcz_datowanie::before {
     content: "Najwcześniejsze datowanie: ";

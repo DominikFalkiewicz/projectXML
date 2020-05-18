@@ -69,16 +69,19 @@ estetyka:
 -----------MAX(-)
 
 rzeczy z zajec:
--dodanie zawartosic przed/po elemencie
 -style tekstu
 -style granic
+-style grafiki
 -orientacja elementow
--wstawienie obrazka
+-dodanie zawartosic przed/po elemencie
+-wstawienie obrazka jako zawartosci
 -zmiana koloru po najechaniu
 -----------MAX(6)
 -warunkowanie po atrybutach
 
 rzeczy spoza zajec:
 -automatyczna numeracja
+-wstawienie znaku unicode
+-reakcja na klikniecie
 
 -----------MAX(4)

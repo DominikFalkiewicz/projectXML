@@ -24,8 +24,9 @@
         </klad>
     </klady>
     <gatunki>
-        <gatunek rodzaj="k5" nisza="n3">
+        <gatunek rodzaj="k5" nisza="n1">
             <gnazwa>parkeyi</gnazwa>
+            <data_odkrycia>1937-06-21</data_odkrycia>
             <najwcz_datowanie>290100000</najwcz_datowanie>
         </gatunek>
         <gatunek rodzaj="k6" nisza="n3">
