@@ -48,15 +48,15 @@
     <nisze>
         <nisza id="n1">
             <nnazwa>Drapieżnik</nnazwa>
-            <nopis></nopis>
+            <nopis>Zwierzęta odżywiające się innymi zwierzętami.</nopis>
         </nisza>
         <nisza id="n2">
             <nnazwa>Roślinożerca</nnazwa>
-            <nopis></nopis>
+            <nopis>Zwierzęta odżywiające się roślinami.</nopis>
         </nisza>
         <nisza id="n3">
             <nnazwa>Owadożerca</nnazwa>
-            <nopis></nopis>
+            <nopis>Zwieżęta odżywiające się owadami.</nopis>
         </nisza>
     </nisze>
     <rangi>

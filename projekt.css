@@ -38,7 +38,7 @@ klad {
 	display: block;
 	border: 1px solid black;
 	background: yellow;
-	margin: 5px;
+    margin: 5px;
 }
 klady>klad::before{
     content: counter(klady, upper-roman) ".";
@@ -162,4 +162,61 @@ gatunek>najwcz_datowanie::before {
 }
 gatunek>najwcz_datowanie::after {
     content: " lat temu.";
+}
+
+/*Nisze*/
+
+nisze {
+    display: block;
+	background: lightgrey;
+	border: 1px solid black;
+	margin: 20px;
+}
+nisze::before {
+    content: "Nisze:";
+    display: block;
+    font-weight: bold;
+    font-size: medium;
+    text-transform: uppercase;
+}
+nisza {
+    display: inline-block;
+	border: 1px solid black;
+    margin: 5px;
+    width: 300px;
+}
+nisza[id="n1"]{
+    background: coral;
+}
+nisza[id="n2"]{
+    background: lightgreen;
+}
+nisza[id="n3"]{
+    background: burlywood;
+}
+nisza>nnazwa {
+    display: block;
+    background: white;
+    text-transform: uppercase;
+    text-align: center;
+    height: 20px;
+    border-bottom: 1px solid black; 
+}
+nisza[id="n1"]>nnazwa::before {
+    content: url(./obrazki/drapieżnik.png);
+    float: left;
+}
+nisza[id="n2"]>nnazwa::before {
+    content: url(./obrazki/roślinożerca.png);
+    float: left;
+}
+nisza[id="n3"]>nnazwa::before {
+    content: url(./obrazki/owadożerca.png);
+    float: left;
+}
+nisza>nopis {
+    display: block;
+}
+nisza>nopis::before {
+    content: "Opis: ";
 }
