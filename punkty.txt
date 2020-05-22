@@ -65,10 +65,10 @@ Praktyczne uzycie typow wbudowanych:
 -----------MAX(6)
 
 CSS:
-estetyka:
+Estetyka:
 -----------MAX(-)
 
-rzeczy z zajec:
+Rzeczy z zajec:
 -style tekstu
 -style granic
 -style grafiki
@@ -79,9 +79,21 @@ rzeczy z zajec:
 -----------MAX(6)
 -warunkowanie po atrybutach
 
-rzeczy spoza zajec:
+Rzeczy spoza zajec:
 -automatyczna numeracja
 -reakcja na klikniecie
 -cien
 -zoom
 -----------MAX(4)
+
+XSLT:
+Estetyka, css, rozne elementy HTML:
+-----------MAX(-)
+
+Praktyczne uzycie elementow XSLT:
+
+-----------MAX(8)
+
+Praktyczne uzycie funkcji i predykatow XPath:
+
+-----------MAX(6)
