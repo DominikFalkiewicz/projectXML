@@ -2,6 +2,9 @@
     display: block;
     background-image: url(./obrazki/drzewo.jpg);
 }
+drzewo>dnazwa {
+    display: none;
+}
 drzewo::before{
     content: "Drzewo Życia";
     display: block;

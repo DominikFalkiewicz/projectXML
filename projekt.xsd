@@ -7,6 +7,7 @@
                 <xsd:element name="ostatnia_modyfikacja" type="xsd:dateTime" minOccurs="1" maxOccurs="1"/>
                 <xsd:group ref="grupy" minOccurs="1" maxOccurs="1"/>
             </xsd:sequence>
+            <xsd:attribute name="bcg" type="imi" use="optional"/>
         </xsd:complexType>
         <xsd:key name="id_klad">
             <xsd:selector xpath="./klady/klad"/>
@@ -164,6 +165,7 @@
         </xsd:sequence>
         <xsd:attribute name="rodzaj" type="kid" use="required"/>
         <xsd:attribute name="nisza" type="nid" use="optional"/>
+        <xsd:attribute name="wymarly" type="xsd:boolean" use="required"/>
         <xsd:attributeGroup ref="obrazki"/>
     </xsd:complexType>
 

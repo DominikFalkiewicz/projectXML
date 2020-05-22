@@ -26,6 +26,7 @@
 
 <!ATTLIST drzewo xmlns:xsi CDATA #IMPLIED >
 <!ATTLIST drzewo xsi:noNamespaceSchemaLocation CDATA #IMPLIED >
+<!ATTLIST drzewo bcg CDATA #IMPLIED >
 
 <!ELEMENT klady (klad+) >
 <!ELEMENT klad (knazwa) >
@@ -45,6 +46,7 @@
 <!ATTLIST gatunek nisza IDREF #IMPLIED >
 <!ATTLIST gatunek img CDATA #REQUIRED >
 <!ATTLIST gatunek imf CDATA #IMPLIED >
+<!ATTLIST gatunek wymarly CDATA #REQUIRED >
 
 <!ELEMENT nisze (nisza*) >
 <!ELEMENT nisza (nnazwa, nopis?) >

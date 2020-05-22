@@ -1,10 +1,116 @@
-﻿title {
-    display: block;
+﻿body {
+    background: 
 }
-div.grupa {
+h1 {
+    text-align: center;
+    text-transform: uppercase;
+    background: white;
+    font-weight: bold;
+    border: 2px solid black;
+}
+h2 {
+    text-align: center;
+    text-transform: uppercase;
+}
+h3 {
+    text-align: center;
+}
+h4 {
+    text-align: center;
+}
+h4.gatunek {
+    display: block;
+    padding: 10px;
+    margin: 0;
+    text-align: center;
+    border-bottom: 1px solid black;
+}
+h4.nisza {
+    display: inline-block;
+    margin: 0px;
+    padding: 5px;
+    text-align: center;
+    width: 220px;
+}
+div.opis {
+    display: block;
+    border-top: 1px solid black;
+    padding: 5px;
+}
+div.organizmy {
 	display: block;
-	background: lightgrey;
+	background: lightgreen;
+	border: 1px solid black;
+	margin: 20px;
+    padding: 15px;
+}
+div.legenda {
+	display: block;
+	background: lightblue;
 	border: 1px solid black;
 	margin: 20px;
     padding: 10px;
+}
+div.pod_legenda {
+	display: inline-block;
+	background: coral;
+	border: 1px solid black;
+	margin: 20px;
+    padding: 10px;
+    overflow: hidden;
+    vertical-align: top;
+}
+div.nisza {
+	display: inline-block;
+	background: white;
+	border: 1px solid black;
+	margin: 10px;
+    width: 250px;
+    overflow: hidden;
+    vertical-align: top;
+}
+img.symbol {
+    float: top-left;
+}
+img.portret {
+    display: inline-block;
+    float: top-left;
+    width: 300;
+    height: auto;
+    overflow: hidden;
+    vertical-align: top;
+    border-right: 1px solid black;
+}
+div.klad {
+	display: block;
+	background: lightgrey;
+	border: 1px solid black;
+	margin: 5px;
+}
+div.gatunek {
+	display: block;
+	background: lightgrey;
+	border: 1px solid black;
+	margin: 5px;
+}
+table {
+    border: 1px solid black;
+    border-collapse: collapse;
+    background: white;
+}
+tr {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 5px;
+}
+th {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 5px;
+}
+dl {
+    background: white;
+    border-top: 1px solid black;
+    border-bottom: 1px solid white;
+    float: bottom;
 }

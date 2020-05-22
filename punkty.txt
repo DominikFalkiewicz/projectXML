@@ -91,9 +91,20 @@ Estetyka, css, rozne elementy HTML, walidacja:
 -----------MAX(-)
 
 Praktyczne uzycie elementow XSLT:
+-sort
+-variable
+-for-aech
+-if
+-call-template
+-value-of
 
 -----------MAX(8)
 
 Praktyczne uzycie funkcji i predykatow XPath:
-
+-not()
+-format-number()
+-min()
+-max()
+-contains()
+-count()
 -----------MAX(6)
