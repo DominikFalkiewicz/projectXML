@@ -2,6 +2,7 @@
 <?xml-stylesheet type="text/css" href="projekt.css"?>
 <!DOCTYPE drzewo SYSTEM "projekt.dtd">
 <drzewo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="projekt.xsd">
+    <dnazwa>Caseazaury</dnazwa>
     <ostatnia_modyfikacja>2019-12-30T09:14:53</ostatnia_modyfikacja>
     <klady>
         <klad id="k1" okresy="o1 o2" wymarly="1">
@@ -46,15 +47,15 @@
         </gatunek>
     </gatunki>
     <nisze>
-        <nisza id="n1">
+        <nisza id="n1" img="./obrazki/drapieżnik.png">
             <nnazwa>Drapieżnik</nnazwa>
             <nopis>Zwierzęta odżywiające się innymi zwierzętami.</nopis>
         </nisza>
-        <nisza id="n2">
+        <nisza id="n2" img="./obrazki/roślinożerca.png">
             <nnazwa>Roślinożerca</nnazwa>
             <nopis>Zwierzęta odżywiające się roślinami.</nopis>
         </nisza>
-        <nisza id="n3">
+        <nisza id="n3" img="./obrazki/owadożerca.png">
             <nnazwa>Owadożerca</nnazwa>
             <nopis>Zwieżęta odżywiające się owadami.</nopis>
         </nisza>

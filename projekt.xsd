@@ -3,6 +3,7 @@
     <xsd:element name="drzewo">
         <xsd:complexType>
             <xsd:sequence>
+                <xsd:element name="dnazwa" type="xsd:string" minOccurs="1" maxOccurs="1"/>
                 <xsd:element name="ostatnia_modyfikacja" type="xsd:dateTime" minOccurs="1" maxOccurs="1"/>
                 <xsd:group ref="grupy" minOccurs="1" maxOccurs="1"/>
             </xsd:sequence>
@@ -187,6 +188,7 @@
             <xsd:element name="nopis" type="xsd:string" minOccurs="0" maxOccurs="1"/>
         </xsd:sequence>
         <xsd:attribute name="id" type="nid" use="required"/>
+        <xsd:attribute name="img" type="imi" use="required"/>
     </xsd:complexType>
 
     <xsd:simpleType name="nid">

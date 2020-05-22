@@ -87,7 +87,7 @@ Rzeczy spoza zajec:
 -----------MAX(4)
 
 XSLT:
-Estetyka, css, rozne elementy HTML:
+Estetyka, css, rozne elementy HTML, walidacja:
 -----------MAX(-)
 
 Praktyczne uzycie elementow XSLT:

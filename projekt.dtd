@@ -15,13 +15,14 @@
 <!ENTITY % grupy "%od;|%do;" >
 
 <![%sztywne;[
-<!ELEMENT drzewo (ostania_modyfikacja, klady, gatunki, nisze, rangi, okresy)
+<!ELEMENT drzewo (dnazwa, ostania_modyfikacja, klady, gatunki, nisze, rangi, okresy)
 ]]>
 <![%luzne;[
-<!ELEMENT drzewo (ostatnia_modyfikacja, (%grupy;)) >
+<!ELEMENT drzewo (dnazwa, ostatnia_modyfikacja, (%grupy;)) >
 ]]>
 
 <!ELEMENT ostatnia_modyfikacja (#PCDATA) >
+<!ELEMENT dnazwa (#PCDATA) >
 
 <!ATTLIST drzewo xmlns:xsi CDATA #IMPLIED >
 <!ATTLIST drzewo xsi:noNamespaceSchemaLocation CDATA #IMPLIED >
@@ -50,6 +51,7 @@
 <!ELEMENT nnazwa (#PCDATA) >
 <!ELEMENT nopis (#PCDATA) >
 <!ATTLIST nisza id ID #REQUIRED >
+<!ATTLIST nisza img CDATA #REQUIRED >
 
 <!ELEMENT rangi (ranga+) >
 <!ELEMENT ranga (rnazwa) >

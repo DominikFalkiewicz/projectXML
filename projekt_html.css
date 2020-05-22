@@ -1,0 +1,10 @@
+﻿title {
+    display: block;
+}
+div.grupa {
+	display: block;
+	background: lightgrey;
+	border: 1px solid black;
+	margin: 20px;
+    padding: 10px;
+}
