@@ -3,13 +3,11 @@
     <xsl:output method="html" indent="yes"/>
 
     <xsl:template match="drzewo">
-        <!--
         <xsl:text disable-output-escaping="yes">&lt;!DOCTYPE html&gt;</xsl:text>
         <xsl:text>
             
         </xsl:text>
-        -->
-        <html>
+        <html lang="pl">
             <head>
                 <title><xsl:value-of select="dnazwa"/></title>
                 <link rel="stylesheet" type="text/css" href="projekt_html.css" media="screen" />
@@ -46,22 +44,22 @@
                     <xsl:call-template name="okres"/>
                 </xsl:for-each>
                 <tr>
-                    <th>W Sumie</th>
-                    <th><xsl:value-of select="max(okres/poczatek)"/></th>
-                    <th><xsl:value-of select="min(okres/koniec)"/></th>
-                    <th><xsl:value-of select="format-number(max(okres/poczatek) - min(okres/koniec), '#.##')"/></th>
-                    <th>-</th>
+                    <td>W Sumie</td>
+                    <td><xsl:value-of select="max(okres/poczatek)"/></td>
+                    <td><xsl:value-of select="min(okres/koniec)"/></td>
+                    <td><xsl:value-of select="format-number(max(okres/poczatek) - min(okres/koniec), '#.##')"/></td>
+                    <td>-</td>
                 </tr>
             </table>
         </div>
     </xsl:template>
     <xsl:template name="okres" match="okres">
         <tr>
-            <th><xsl:value-of select="onazwa"/></th>
-            <th><xsl:value-of select="poczatek"/></th>
-            <th><xsl:value-of select="koniec"/></th>
-            <th><xsl:value-of select="format-number(poczatek - koniec, '#.##')"/></th>
-            <th><xsl:value-of select="@skrot"/></th>
+            <td><xsl:value-of select="onazwa"/></td>
+            <td><xsl:value-of select="poczatek"/></td>
+            <td><xsl:value-of select="koniec"/></td>
+            <td><xsl:value-of select="format-number(poczatek - koniec, '#.##')"/></td>
+            <td><xsl:value-of select="@skrot"/></td>
         </tr>
     </xsl:template>
     
@@ -77,7 +75,7 @@
     <xsl:template name="nisza" match="nisza">
         <xsl:variable name="isrc" select="@img"/>
         <div class="nisza">
-            <img class="symbol" src="{$isrc}"/>
+            <img alt="(no image)" class="symbol" src="{$isrc}"/>
             <h4 class="nisza"><xsl:value-of select="nnazwa"/></h4>
             <div class="opis"><xsl:value-of select="nopis"/></div>
         </div>
@@ -97,6 +95,15 @@
         <xsl:variable name="oksy" select="@okresy"/>
         <div class="klad">
             <h4>
+                <xsl:choose>
+                    <xsl:when test="not(@ranga)">
+                        Klad
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:variable name="ranga" select="@ranga"/>
+                        <xsl:value-of select="/drzewo/rangi/ranga[@id=$ranga]"/>
+                    </xsl:otherwise>
+                </xsl:choose>
                 <xsl:value-of select="knazwa"/>
                 <xsl:if test="@wymarly=1">&#x271D;</xsl:if>
                 (<xsl:value-of select="/drzewo/okresy/okres[contains($oksy, @id)]/@skrot"/>)
@@ -127,15 +134,30 @@
     <!-- GATUNKI -->
     <xsl:template name="gatunek" match="gatunek">
         <xsl:variable name="rodzaj" select="@rodzaj"/>
-        <xsl:variable name="isrc" select="@img"/>
+        <xsl:variable name="nisza" select="@nisza"/>
+        <xsl:variable name="psrc" select="@img"/>
+        <xsl:variable name="isrc" select="/drzewo/nisze/nisza[@id=$nisza]/@img"/>
         <div class="gatunek">
+            <img alt="(no image)" class="symbol" src="{$isrc}"/>
             <h4 class="gatunek">
                 <xsl:value-of select="/drzewo/klady/klad[@id=$rodzaj]/knazwa"/>
                 <xsl:text> </xsl:text>
                 <xsl:value-of select="gnazwa"/>
                 <xsl:if test="@wymarly=1">&#x271D;</xsl:if>
             </h4>
-            <img class="portret" src="{$isrc}"/>
+            <img alt="(no image)" class="portret" src="{$psrc}"/>
+            <div class="gdane">
+                <table>
+                    <tr>
+                        <td>Data odkrycia: </td>
+                        <td><xsl:value-of select="data_odkrycia"/></td>
+                    </tr>
+                    <tr>
+                        <td>Najwcześniejsze datowanie: </td>
+                        <td><xsl:value-of select="najwcz_datowanie"/></td>
+                    </tr>
+                </table>
+            </div>
         </div>
     </xsl:template>
 </xsl:stylesheet>

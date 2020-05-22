@@ -87,7 +87,11 @@ Rzeczy spoza zajec:
 -----------MAX(4)
 
 XSLT:
-Estetyka, css, rozne elementy HTML, walidacja:
+Estetyka, CSS, rozne elementy HTML, walidacja:
+-Ladna strona.
+-Dzieki CSSowi.
+-Duzo roznych elementow.
+-Przechodzi walidacje.
 -----------MAX(-)
 
 Praktyczne uzycie elementow XSLT:
@@ -95,9 +99,10 @@ Praktyczne uzycie elementow XSLT:
 -variable
 -for-aech
 -if
+-choose
 -call-template
+-apply-templates
 -value-of
-
 -----------MAX(8)
 
 Praktyczne uzycie funkcji i predykatow XPath:

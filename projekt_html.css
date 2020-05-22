@@ -21,6 +21,7 @@ h4 {
 h4.gatunek {
     display: block;
     padding: 10px;
+    padding-top: 0px;
     margin: 0;
     text-align: center;
     border-bottom: 1px solid black;
@@ -69,6 +70,9 @@ div.nisza {
     overflow: hidden;
     vertical-align: top;
 }
+div.gdane {
+	display: inline-block;
+}
 img.symbol {
     float: top-left;
 }
@@ -104,6 +108,11 @@ tr {
     padding: 5px;
 }
 th {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 5px;
+}
+td {
     border: 1px solid black;
     border-collapse: collapse;
     padding: 5px;
