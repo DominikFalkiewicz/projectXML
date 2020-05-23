@@ -18,7 +18,7 @@ public class Drzewo {
 	private Element drzewo;
     private Klady klady;
     private Element gatunki;
-    private Element nisze;
+    private Nisze nisze;
     private Rangi rangi;
     private Element okresy;
     
@@ -28,7 +28,7 @@ public class Drzewo {
 		drzewo = master.getRoot();
 		klady = new Klady(master.getID("k"));
 		gatunki = master.getID("g");
-		nisze = master.getID("n");
+		nisze = new Nisze(master.getID("n"));
 		rangi = new Rangi(master.getID("r"));
 		okresy = master.getID("o");
 	    reader = new BufferedReader(new InputStreamReader(System.in));
@@ -49,17 +49,23 @@ public class Drzewo {
 			}
 			
 			//Ustalenie rodzaju:
-			System.out.println("Podaj nazwê rodzajow¹:");
-			String proponowany_rodzaj = reader.readLine();
-			String rodzaj_id = klady.getRankedName(ranga_rodzaj_id, proponowany_rodzaj);
-			if(rodzaj_id != null && rodzaj_id.equals("!no_clade")) {
+			List<String> lista_nazw_rodzajow = klady.getRankNameList(ranga_rodzaj_id);
+			if(lista_nazw_rodzajow.size() == 0) {
 				System.out.println("W tej chwili w drzewie nie ma ¿adnego rodzaju. Nie mo¿na utwo¿yæ gatunku.");
 				return;
 			}
+			System.out.println("Obecnie w drzewie s¹ nastêpuj¹ce rodzaje:");
+			for(int i = 0; i < lista_nazw_rodzajow.size(); i++) {
+				System.out.println("-" + lista_nazw_rodzajow.get(i));
+			}
+			
+			System.out.println("Podaj nazwê rodzajow¹:");
+			String proponowany_rodzaj = reader.readLine();
+			String rodzaj_id = klady.getRankedNameId(ranga_rodzaj_id, proponowany_rodzaj);
 			while(rodzaj_id == null) {
 				System.out.println("W tej chwili w drzewie nie ma rodzaju o podanej nazwie. Podaj inn¹ nazwê rodzajow¹:");
 				proponowany_rodzaj = reader.readLine();
-				rodzaj_id = klady.getRankedName(ranga_rodzaj_id, proponowany_rodzaj);
+				rodzaj_id = klady.getRankedNameId(ranga_rodzaj_id, proponowany_rodzaj);
 			}
 			
 			//Ustalenie nazwy gatunkowej:
@@ -73,47 +79,25 @@ public class Drzewo {
 			nazwa = proponowana_nazwa;
 			
 			//Ustalenie niszy:
-			Element nisza;
-			NodeList lista_nisz = nisze.getElementsByTagName("nisza");
-			List<String> lista_nazw_nisz = new ArrayList<String>();
-			List<String> lista_id_nisz = new ArrayList<String>();
-			for(int i = 0; i < lista_nisz.getLength(); i++) {
-				nisza = (Element) lista_nisz.item(i);
-				lista_id_nisz.add(nisza.getAttribute("id"));
-				lista_nazw_nisz.add(nisza.getElementsByTagName("nnazwa").item(0).getTextContent());
-			}
-			if(lista_id_nisz.size() == 0) {
+			List<String> lista_nazw_nisz = nisze.getNameList();
+			if(lista_nazw_nisz.size() == 0) {
 				System.out.println("W tej chwili w drzewie nie ma ¿adnej niszy. Nie mo¿na utwo¿yæ gatunku.");
 				return;
 			}
-
 			System.out.println("Obecnie w drzewie s¹ nastêpuj¹ce nisze:");
 			for(int i = 0; i < lista_nazw_nisz.size(); i++) {
 				System.out.println("-" + lista_nazw_nisz.get(i));
 			}
 			
-			String nisza_id = "";
 			System.out.println("Podaj niszê:");
 			String proponowana_nisza = reader.readLine();
-			boolean nisza_znaleziona = false;
-			for(int i = 0; i < lista_nazw_nisz.size(); i++) {
-				if(lista_nazw_nisz.get(i).equals(proponowana_nisza)) {
-					nisza_znaleziona = true;
-					nisza_id = lista_id_nisz.get(i);
-					break;
-				}
-			}
-			while(!nisza_znaleziona) {
+			String nisza_id = nisze.getNameId(proponowana_nisza);
+			while(nisza_id == null) {
 				System.out.println("W tej chwili w drzewie nie ma niszy o podanej nazwie. Podaj inn¹ niszê:");
 				proponowana_nisza = reader.readLine();
-				for(int i = 0; i < lista_nazw_nisz.size(); i++) {
-					if(lista_nazw_nisz.get(i).equals(proponowana_nisza)) {
-						nisza_znaleziona = true;
-						nisza_id = lista_id_nisz.get(i);
-						break;
-					}
-				}
+				nisza_id = nisze.getNameId(proponowana_nisza);
 			}
+			
 			//Ustalenie czy gatunek wymar³:
 			String wymarcie;
 			System.out.println("Czy gatunek wymar³? (tak/nie)");
