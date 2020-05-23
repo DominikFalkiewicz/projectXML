@@ -19,7 +19,7 @@ public class Drzewo {
     private Klady klady;
     private Element gatunki;
     private Element nisze;
-    private Element rangi;
+    private Rangi rangi;
     private Element okresy;
     
 	
@@ -29,7 +29,7 @@ public class Drzewo {
 		klady = new Klady(master.getID("k"));
 		gatunki = master.getID("g");
 		nisze = master.getID("n");
-		rangi = master.getID("r");
+		rangi = new Rangi(master.getID("r"));
 		okresy = master.getID("o");
 	    reader = new BufferedReader(new InputStreamReader(System.in));
 	}
@@ -37,57 +37,29 @@ public class Drzewo {
 	public void createSpc() {
 		try {
 			System.out.println("GENERATOR GATUNKU");
-			//Ustalenie rodzaju:
-			String ranga_rodzaj_id = null;
-			Element ranga;
-			NodeList lista_rang = rangi.getElementsByTagName("ranga");
-			for(int i = 0; i < lista_rang.getLength(); i++) {
-				ranga = (Element) lista_rang.item(i);
-				if(ranga.getTextContent().equals("Rodzaj")) {
-					ranga_rodzaj_id = ranga.getAttribute("id");
-					break;
-				}
-			}
+			//Ustalenie id rangi "Rodzaj":
+			String ranga_rodzaj_id = rangi.getNameId("Rodzaj");
 			if(ranga_rodzaj_id == null) {
 				System.out.println("W tej chwili w drzewie nie ma rangi \"Rodzaj\". Nie mo¿na utwo¿yæ gatunku.");
 				return;
 			}
-
-			String klad_rodzaj_id = null;
-			String klad_rodzaj_nazwa = null;
-			Element klad;
-			List<String> lista_id_rodzajow = klady.getRankIdList(ranga_rodzaj_id);
-			List<String> lista_nazw_rodzajow = klady.getRankNameList(ranga_rodzaj_id);
-			if(lista_id_rodzajow.size() == 0) {
-				System.out.println("W tej chwili w drzewie nie ma ¿adnego rodzaju. Nie mo¿na utwo¿yæ gatunku.");
+			else if(ranga_rodzaj_id.equals("!no_rank")) {
+				System.out.println("W tej chwili w drzewie nie ma ¿adnej rangi. Nie mo¿na utwo¿yæ gatunku.");
 				return;
 			}
 			
-			System.out.println("Obecnie w drzewie s¹ nastêpuj¹ce rodzaje:");
-			for(int i = 0; i < lista_nazw_rodzajow.size(); i++) {
-				System.out.println("-" + lista_nazw_rodzajow.get(i));
-			}
-			String rodzaj_id = "";
+			//Ustalenie rodzaju:
 			System.out.println("Podaj nazwê rodzajow¹:");
 			String proponowany_rodzaj = reader.readLine();
-			boolean rodzaj_znaleziony = false;
-			for(int i = 0; i < lista_nazw_rodzajow.size(); i++) {
-				if(lista_nazw_rodzajow.get(i).equals(proponowany_rodzaj)) {
-					rodzaj_znaleziony = true;
-					rodzaj_id = lista_id_rodzajow.get(i);
-					break;
-				}
+			String rodzaj_id = klady.getRankedName(ranga_rodzaj_id, proponowany_rodzaj);
+			if(rodzaj_id != null && rodzaj_id.equals("!no_clade")) {
+				System.out.println("W tej chwili w drzewie nie ma ¿adnego rodzaju. Nie mo¿na utwo¿yæ gatunku.");
+				return;
 			}
-			while(!rodzaj_znaleziony) {
+			while(rodzaj_id == null) {
 				System.out.println("W tej chwili w drzewie nie ma rodzaju o podanej nazwie. Podaj inn¹ nazwê rodzajow¹:");
 				proponowany_rodzaj = reader.readLine();
-				for(int i = 0; i < lista_nazw_rodzajow.size(); i++) {
-					if(lista_nazw_rodzajow.get(i).equals(proponowany_rodzaj)) {
-						rodzaj_znaleziony = true;
-						rodzaj_id = lista_id_rodzajow.get(i);
-						break;
-					}
-				}
+				rodzaj_id = klady.getRankedName(ranga_rodzaj_id, proponowany_rodzaj);
 			}
 			
 			//Ustalenie nazwy gatunkowej:

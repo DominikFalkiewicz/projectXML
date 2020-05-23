@@ -14,7 +14,7 @@ public class Klady {
 		klady = klady_p;
 	}
 	
-	public List<String> getRankNameList(String ranga){
+	private List<String> getRankNameList(String ranga){
 		NodeList lista_kladow = klady.getElementsByTagName("klad");
 		List<String> lista_nazw_kladow = new ArrayList();
 		Element klad;
@@ -27,7 +27,7 @@ public class Klady {
 		return lista_nazw_kladow;
 	}
 	
-	public List<String> getRankIdList(String ranga){
+	private List<String> getRankIdList(String ranga){
 		NodeList lista_kladow = klady.getElementsByTagName("klad");
 		List<String> lista_id_kladow = new ArrayList();
 		Element klad;
@@ -39,4 +39,21 @@ public class Klady {
 		}
 		return lista_id_kladow;
 	}
+	
+	public String getRankedName(String ranga_id, String nazwa) {
+		List<String> lista_id_kladow = getRankIdList(ranga_id);
+		List<String> lista_nazw_kladow = getRankNameList(ranga_id);
+		if(lista_id_kladow.size() == 0) {
+			return "!no_clades";
+		}
+		String rodzaj_id;
+		for(int i = 0; i < lista_nazw_kladow.size(); i++) {
+			if(lista_nazw_kladow.get(i).equals(nazwa)) {
+				rodzaj_id = lista_id_kladow.get(i);
+				return rodzaj_id;
+			}
+		}
+		return null;
+	}
+	
 }
