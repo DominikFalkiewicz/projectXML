@@ -121,8 +121,71 @@ public class Drzewo {
 				proponowana_img = reader.readLine();
 			}
 			img = proponowana_img;
-			addSpc(nazwa, rodzaj_id, nisza_id, wymarcie, img, null, null, null);
 			
+			//Ustalenie sciezki do skamieliny:
+			String imf;
+			System.out.println("Czy chcesz dodaæ grafikê skamieliny? (tak/nie)");
+			String czy_skamielina = reader.readLine();
+			while(!czy_skamielina.equals("tak") && !czy_skamielina.equals("nie")) {
+				System.out.println("Podano nieprawid³ow¹ wartoœæ. Czy chcesz dodaæ grafikê skamieliny? (tak/nie)");
+				czy_skamielina = reader.readLine();
+			}
+			if(czy_skamielina.equals("tak")) {
+				System.out.println("Podaj œcie¿kê do skamieliny:");
+				String proponowana_imf = reader.readLine();
+				while(proponowana_imf.equals("")) {
+					System.out.println("Podano nieprawid³ow¹ œcie¿kê. Podaj œcie¿kê do skamieliny:");
+					proponowana_imf = reader.readLine();
+				}
+				imf = proponowana_imf;
+			}
+			else {
+				imf = null;
+			}
+			
+			//Ustalenie daty odkycia:
+			String data;
+			System.out.println("Czy chcesz dodaæ datê odkrycia? (tak/nie)");
+			String czy_data = reader.readLine();
+			while(!czy_data.equals("tak") && !czy_data.equals("nie")) {
+				System.out.println("Podano nieprawid³ow¹ wartoœæ. Czy chcesz dodaæ datê odkrycia? (tak/nie)");
+				czy_data = reader.readLine();
+			}
+			if(czy_data.equals("tak")) {
+				System.out.println("Podaj datê odkrycia:");
+				String proponowana_data = reader.readLine();
+				while(proponowana_data.equals("")) {
+					System.out.println("Podano nieprawid³ow¹ œcie¿kê. Podaj datê odkrycia:");
+					proponowana_data = reader.readLine();
+				}
+				data = proponowana_data;
+			}
+			else {
+				data = null;
+			}
+			
+			//Ustalenie datowania:
+			String datowanie;
+			System.out.println("Czy chcesz dodaæ datowanie? (tak/nie)");
+			String czy_datowanie = reader.readLine();
+			while(!czy_datowanie.equals("tak") && !czy_datowanie.equals("nie")) {
+				System.out.println("Podano nieprawid³ow¹ wartoœæ. Czy chcesz dodaæ datowanie? (tak/nie)");
+				czy_datowanie = reader.readLine();
+			}
+			if(czy_datowanie.equals("tak")) {
+				System.out.println("Podaj datowanie:");
+				String proponowane_datowanie = reader.readLine();
+				while(proponowane_datowanie.equals("")) {
+					System.out.println("Podano nieprawid³ow¹ œcie¿kê. Podaj datowanie:");
+					proponowane_datowanie = reader.readLine();
+				}
+				datowanie = proponowane_datowanie;
+			}
+			else {
+				datowanie = null;
+			}
+			
+			addSpc(nazwa, rodzaj_id, nisza_id, wymarcie, img, imf, data, datowanie);
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
@@ -136,12 +199,12 @@ public class Drzewo {
 		gatunek.appendChild(gnazwa);
 		if(data != null) {
 			Element data_odkrycia = master.newElement("data_odkrycia");
-			gnazwa.setTextContent(data);
+			data_odkrycia.setTextContent(data);
 			gatunek.appendChild(data_odkrycia);
 		}
 		if(datowanie != null) {
 			Element najwcz_datowanie = master.newElement("najwcz_datowanie");
-			gnazwa.setTextContent(datowanie);
+			najwcz_datowanie.setTextContent(datowanie);
 			gatunek.appendChild(najwcz_datowanie);
 		}
 		gatunek.setAttribute("rodzaj", rodzaj);
@@ -151,7 +214,6 @@ public class Drzewo {
 		if(imf != null) {
 			gatunek.setAttribute("imf", imf);
 		}
-		Element gatunki = master.getID("g");
 		gatunki.appendChild(gatunek);
 	}
 

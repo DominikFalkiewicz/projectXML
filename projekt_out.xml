@@ -43,7 +43,7 @@
             <gnazwa>hancocki</gnazwa>
             <data_odkrycia>1953-04-12</data_odkrycia>
         </gatunek>
-    <gatunek img="aswdfhboas" nisza="n1" rodzaj="k5" wymarly="1"><gnazwa>romeri</gnazwa></gatunek></gatunki>
+    <gatunek img="awatar" nisza="n1" rodzaj="k5" wymarly="1"><gnazwa>romeri</gnazwa></gatunek></gatunki>
     <nisze id="n">
         <nisza id="n1" img="./obrazki/drapieżnik.png">
             <nnazwa>Drapieżnik</nnazwa>
