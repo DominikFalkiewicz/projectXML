@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/css" href="projekt.css"?><!DOCTYPE drzewo SYSTEM "projekt.dtd">
+<drzewo bcg="./obrazki/drzewo.jpg" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="projekt.xsd">
+    <dnazwa>Caseazaury</dnazwa>
+    <ostatnia_modyfikacja>2019-12-30T09:14:53</ostatnia_modyfikacja>
+    <klady id="k">
+        <klad id="k1" okresy="o1 o2" wymarly="1">
+            <knazwa>Caseasauria</knazwa>
+        </klad>
+        <klad id="k2" ojciec="k1" okresy="o2" ranga="r2" wymarly="1">
+            <knazwa>Eothyrididae</knazwa>
+        </klad>
+        <klad id="k3" ojciec="k1" okresy="o1 o2" ranga="r2" wymarly="1">
+            <knazwa>Caseidae</knazwa>
+        </klad>
+        <klad id="k4" ojciec="k3" okresy="o2" ranga="r1" wymarly="1">
+            <knazwa>Cotylorhynchus</knazwa>
+        </klad>
+        <klad id="k5" ojciec="k2" okresy="o2" ranga="r1" wymarly="1">
+            <knazwa>Eothyris</knazwa>
+        </klad>
+        <klad id="k6" ojciec="k2" okresy="o2" ranga="r1" wymarly="1">
+            <knazwa>Oedaleops</knazwa>
+        </klad>
+    </klady>
+    <gatunki id="g">
+        <gatunek imf="./obrazki/EothyrisF.jpg" img="./obrazki/Eothyris.jpg" nisza="n1" rodzaj="k5" wymarly="1">
+            <gnazwa>parkeyi</gnazwa>
+            <data_odkrycia>1937-06-21</data_odkrycia>
+            <najwcz_datowanie>290100000</najwcz_datowanie>
+        </gatunek>
+        <gatunek imf="./obrazki/OedaleopsF.jpg" img="./obrazki/Oedaleops.jpg" nisza="n3" rodzaj="k6" wymarly="1">
+            <gnazwa>campi</gnazwa>
+        </gatunek>
+        <gatunek imf="./obrazki/CotylorhynchusF.jpg" img="./obrazki/romeri.jpg" nisza="n2" rodzaj="k4" wymarly="1">
+            <gnazwa>romeri</gnazwa>
+            <data_odkrycia>1937-02-01</data_odkrycia>
+        </gatunek>
+        <gatunek imf="./obrazki/CotylorhynchusF.jpg" img="./obrazki/bransoni.jpg" nisza="n2" rodzaj="k4" wymarly="1">
+            <gnazwa>bransoni</gnazwa>
+            <data_odkrycia>1962-12-29</data_odkrycia>
+        </gatunek>
+        <gatunek imf="./obrazki/CotylorhynchusF.jpg" img="./obrazki/Cotylorhynchus.jpg" nisza="n2" rodzaj="k4" wymarly="1">
+            <gnazwa>hancocki</gnazwa>
+            <data_odkrycia>1953-04-12</data_odkrycia>
+        </gatunek>
+    <gatunek img="./asdfbhiabsdfujbnaskdf" nisza="n1" rodzaj="k5" wymarly="1"><gnazwa>romeri</gnazwa></gatunek></gatunki>
+    <nisze id="n">
+        <nisza id="n1" img="./obrazki/drapieżnik.png">
+            <nnazwa>Drapieżnik</nnazwa>
+            <nopis>Zwierzęta odżywiające się innymi zwierzętami.</nopis>
+        </nisza>
+        <nisza id="n2" img="./obrazki/roślinożerca.png">
+            <nnazwa>Roślinożerca</nnazwa>
+            <nopis>Zwierzęta odżywiające się roślinami.</nopis>
+        </nisza>
+        <nisza id="n3" img="./obrazki/owadożerca.png">
+            <nnazwa>Owadożerca</nnazwa>
+            <nopis>Zwieżęta odżywiające się owadami.</nopis>
+        </nisza>
+    </nisze>
+    <rangi id="r">
+        <ranga id="r1">
+            <rnazwa>Rodzaj</rnazwa>
+        </ranga>
+        <ranga id="r2">
+            <rnazwa>Rodzina</rnazwa>
+        </ranga>
+    </rangi>
+    <okresy id="o">
+        <okres id="o1" skrot="C">
+            <onazwa>Karbon</onazwa>
+            <poczatek sufiks="miliona lat temu">358.9</poczatek>
+            <koniec sufiks="miliona lat temu">298.9</koniec>
+        </okres>
+        <okres id="o2" skrot="P">
+            <onazwa>Perm</onazwa>
+            <poczatek sufiks="miliona lat temu">298.9</poczatek>
+            <koniec sufiks="miliona lat temu">252.17</koniec>
+        </okres>
+    </okresy>
+</drzewo>

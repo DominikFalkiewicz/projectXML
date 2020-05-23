@@ -33,14 +33,23 @@ public class Dokument {
 	private LSSerializer domWriter;
 	private LSOutput dOut;
 	
+	private String input;
+	private String output;
+	private String schema;
 	
-	public Dokument(String input, String output) {
+	
+	public Dokument(String input_p, String output_p) {
+		input = input_p;
+		output = output_p;
 		read(input);
 		setTree();
 	}
 	
-	public Dokument(String input, String output, String schema) {
-		read(input, schema);
+	public Dokument(String input_p, String output_p, String schema_p) {
+		input = input_p;
+		output = output_p;
+		schema = schema_p;
+		read();
 		setTree();
 	}
 	
@@ -82,7 +91,7 @@ public class Dokument {
 		}
 	}
 	
-	private void read(String input, String schema) { //Ze schematem.
+	private void read() { //Ze schematem.
 		try {
 			//Uzyskanie buildera.
 			registry = DOMImplementationRegistry.newInstance();
@@ -106,7 +115,7 @@ public class Dokument {
 		}
 	}
 	
-	public void save(String output) {
+	public void save() {
 		try {
 			// Pozyskanie serializatora i jego konfiguratora. Konfiguracja.
 			domWriter = impl.createLSSerializer();

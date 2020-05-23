@@ -26,7 +26,6 @@ public class Drzewo {
 		try {
 			System.out.println("GENERATOR GATUNKU");
 			//Ustalenie rodzaju:
-			
 			String ranga_rodzaj_id = null;
 			Element rangi = master.getID("r");
 			Element ranga;
@@ -61,31 +60,111 @@ public class Drzewo {
 				System.out.println("W tej chwili w drzewie nie ma ¿adnego rodzaju. Nie mo¿na utwo¿yæ gatunku.");
 				return;
 			}
-
-			String rodzaj;
+			
+			System.out.println("Obecnie w drzewie s¹ nastêpuj¹ce rodzaje:");
+			for(int i = 0; i < lista_nazw_rodzajow.size(); i++) {
+				System.out.println("-" + lista_nazw_rodzajow.get(i));
+			}
+			String rodzaj_id = "";
 			System.out.println("Podaj nazwê rodzajow¹:");
 			String proponowany_rodzaj = reader.readLine();
-			boolean found = false;
+			boolean rodzaj_znaleziony = false;
 			for(int i = 0; i < lista_nazw_rodzajow.size(); i++) {
 				if(lista_nazw_rodzajow.get(i).equals(proponowany_rodzaj)) {
-					found = true;
-					rodzaj = lista_rodzajow.get(i);
+					rodzaj_znaleziony = true;
+					rodzaj_id = lista_rodzajow.get(i);
 					break;
 				}
 			}
-			while(!found) {
+			while(!rodzaj_znaleziony) {
 				System.out.println("W tej chwili w drzewie nie ma rodzaju o podanej nazwie. Podaj inn¹ nazwê rodzajow¹:");
 				proponowany_rodzaj = reader.readLine();
 				for(int i = 0; i < lista_nazw_rodzajow.size(); i++) {
 					if(lista_nazw_rodzajow.get(i).equals(proponowany_rodzaj)) {
-						found = true;
-						rodzaj = lista_rodzajow.get(i);
+						rodzaj_znaleziony = true;
+						rodzaj_id = lista_rodzajow.get(i);
 						break;
 					}
 				}
 			}
-			rodzaj = lista_rodzajow.get(lista_nazw_rodzajow.indexOf(proponowany_rodzaj));
-			System.out.println(rodzaj);
+			
+			//Ustalenie nazwy gatunkowej:
+			String nazwa;
+			System.out.println("Podaj nazwê gatunkow¹:");
+			String proponowana_nazwa = reader.readLine();
+			while(proponowana_nazwa.equals("") || proponowana_nazwa.contains(" ")) {
+				System.out.println("Podano nieprawid³ow¹ nazwê. Podaj nazwê gatunkow¹:");
+				proponowana_nazwa = reader.readLine();
+			}
+			nazwa = proponowana_nazwa;
+			
+			//Ustalenie niszy:
+			Element nisze = master.getID("n");
+			Element nisza;
+			NodeList lista_nisz = nisze.getElementsByTagName("nisza");
+			List<String> lista_nazw_nisz = new ArrayList<String>();
+			List<String> lista_id_nisz = new ArrayList<String>();
+			for(int i = 0; i < lista_nisz.getLength(); i++) {
+				nisza = (Element) lista_nisz.item(i);
+				lista_id_nisz.add(nisza.getAttribute("id"));
+				lista_nazw_nisz.add(nisza.getElementsByTagName("nnazwa").item(0).getTextContent());
+			}
+			if(lista_id_nisz.size() == 0) {
+				System.out.println("W tej chwili w drzewie nie ma ¿adnej niszy. Nie mo¿na utwo¿yæ gatunku.");
+				return;
+			}
+
+			System.out.println("Obecnie w drzewie s¹ nastêpuj¹ce nisze:");
+			for(int i = 0; i < lista_nazw_nisz.size(); i++) {
+				System.out.println("-" + lista_nazw_nisz.get(i));
+			}
+			
+			String nisza_id = "";
+			System.out.println("Podaj niszê:");
+			String proponowana_nisza = reader.readLine();
+			boolean nisza_znaleziona = false;
+			for(int i = 0; i < lista_nazw_nisz.size(); i++) {
+				if(lista_nazw_nisz.get(i).equals(proponowana_nisza)) {
+					nisza_znaleziona = true;
+					nisza_id = lista_id_nisz.get(i);
+					break;
+				}
+			}
+			while(!nisza_znaleziona) {
+				System.out.println("W tej chwili w drzewie nie ma niszy o podanej nazwie. Podaj inn¹ niszê:");
+				proponowana_nisza = reader.readLine();
+				for(int i = 0; i < lista_nazw_nisz.size(); i++) {
+					if(lista_nazw_nisz.get(i).equals(proponowana_nisza)) {
+						nisza_znaleziona = true;
+						nisza_id = lista_id_nisz.get(i);
+						break;
+					}
+				}
+			}
+			//Ustalenie czy gatunek wymar³:
+			String wymarcie;
+			System.out.println("Czy gatunek wymar³? (tak/nie)");
+			String proponowane_wymarcie = reader.readLine();
+			while(!proponowane_wymarcie.equals("tak") && !proponowane_wymarcie.equals("nie")) {
+				System.out.println("Podano nieprawid³ow¹ wartoœæ. Czy gatunek wymar³? (tak/nie)");
+				proponowane_wymarcie = reader.readLine();
+			}
+			if(proponowane_wymarcie.equals("tak")) {
+				wymarcie = "1";
+			}
+			else {
+				wymarcie = "0";
+			}
+			//Ustalenie sciezki do awatara:
+			String img;
+			System.out.println("Podaj œcie¿kê do awatara:");
+			String proponowana_img = reader.readLine();
+			while(proponowana_img.equals("")) {
+				System.out.println("Podano nieprawid³ow¹ œcie¿kê. Podaj œcie¿kê do awatara:");
+				proponowana_img = reader.readLine();
+			}
+			img = proponowana_img;
+			addSpc(nazwa, rodzaj_id, nisza_id, wymarcie, img, null, null, null);
 			
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -98,12 +177,12 @@ public class Drzewo {
 		Element gnazwa = master.newElement("gnazwa");
 		gnazwa.setTextContent(nazwa);
 		gatunek.appendChild(gnazwa);
-		if(data != null && !data.equals("")) {
+		if(data != null) {
 			Element data_odkrycia = master.newElement("data_odkrycia");
 			gnazwa.setTextContent(data);
 			gatunek.appendChild(data_odkrycia);
 		}
-		if(datowanie != null && !datowanie.equals("")) {
+		if(datowanie != null) {
 			Element najwcz_datowanie = master.newElement("najwcz_datowanie");
 			gnazwa.setTextContent(datowanie);
 			gatunek.appendChild(najwcz_datowanie);
@@ -112,9 +191,11 @@ public class Drzewo {
 		gatunek.setAttribute("nisza", nisza);
 		gatunek.setAttribute("wymarly", wymarly);
 		gatunek.setAttribute("img", img);
-		if(imf != null && !imf.equals("")) {
+		if(imf != null) {
 			gatunek.setAttribute("imf", imf);
 		}
+		Element gatunki = master.getID("g");
+		gatunki.appendChild(gatunek);
 	}
 
 }
