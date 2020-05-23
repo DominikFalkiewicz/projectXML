@@ -60,6 +60,9 @@ public class Dokument {
 	public void newSpc() {
 		drzewo.createSpc();
 	}
+	public void remSpc() {
+		drzewo.delSpc();
+	}
 	
 	public Element newElement(String nazwa) {
 		return dokument.createElement(nazwa);

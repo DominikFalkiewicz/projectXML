@@ -17,7 +17,7 @@ public class Drzewo {
 	private Dokument master;
 	private Element drzewo;
     private Klady klady;
-    private Element gatunki;
+    private Gatunki gatunki;
     private Nisze nisze;
     private Rangi rangi;
     private Element okresy;
@@ -27,7 +27,7 @@ public class Drzewo {
 		master = master_p;
 		drzewo = master.getRoot();
 		klady = new Klady(master.getID("k"));
-		gatunki = master.getID("g");
+		gatunki = new Gatunki(master.getID("g"));
 		nisze = new Nisze(master.getID("n"));
 		rangi = new Rangi(master.getID("r"));
 		okresy = master.getID("o");
@@ -191,7 +191,7 @@ public class Drzewo {
 		}
 		
 	}
-	
+
 	public void addSpc(String nazwa, String rodzaj, String nisza, String wymarly, String img, String imf, String data, String datowanie) {
 		Element gatunek = master.newElement("gatunek");
 		Element gnazwa = master.newElement("gnazwa");
@@ -214,7 +214,52 @@ public class Drzewo {
 		if(imf != null) {
 			gatunek.setAttribute("imf", imf);
 		}
-		gatunki.appendChild(gatunek);
+		gatunki.add(gatunek);
 	}
+	
+	public void delSpc() {
+		try {
+			System.out.println("ANIHILATOR GATUNKU");
+			//Ustalenie pelnej nazwy:
+			System.out.println("Podaj pe³n¹ nazwê gatunku:");
+			String nazwa_temp = reader.readLine();
+			while(nazwa_temp.split(" ").length != 2) {
+				System.out.println("Nieprawid³owa nazwa. Podaj pe³n¹ nazwê gatunku:");
+				nazwa_temp = reader.readLine();
+			}
+			String[] pelna_nazwa = nazwa_temp.split(" ");
+			
+			//Ustalenie id rodzaju:
+			String ranga_rodzaj_id = rangi.getNameId("Rodzaj");
+			if(ranga_rodzaj_id == null) {
+				System.out.println("W tej chwili w drzewie nie ma rangi \"Rodzaj\". Nie ma wiêc te¿ gatunków.");
+				return;
+			}
+			else if(ranga_rodzaj_id.equals("!no_rank")) {
+				System.out.println("W tej chwili w drzewie nie ma ¿adnej rangi. Nie ma wiêc te¿ gatunków.");
+				return;
+			}
+			
+			//Ustalenie rodzaju:
+			String rodzaj_id = klady.getRankedNameId(ranga_rodzaj_id, pelna_nazwa[0]);
+			if(rodzaj_id == null) {
+				System.out.println("Nie ma takiego rodzaju.");
+				return;
+			}
+			
+			//Usuniecie gatunku:
+			if(gatunki.deleteGenusSpc(rodzaj_id, pelna_nazwa[1])) {
+				System.out.println("Nie ma takiego gatunku.");
+			}
+			else {
+				System.out.println("Usuniêto " + nazwa_temp + ".");
+			}
+			
+			
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+	}
+	
 
 }
