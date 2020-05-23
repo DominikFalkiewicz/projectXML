@@ -31,7 +31,39 @@ public class Drzewo {
 		nisze = new Nisze(master.getID("n"));
 		rangi = new Rangi(master.getID("r"));
 		okresy = master.getID("o");
-	    reader = new BufferedReader(new InputStreamReader(System.in));
+	    reader = master.getReader();
+	}
+	
+	public void printName() {
+		Element nazwa = (Element) drzewo.getFirstChild().getNextSibling();
+		System.out.println(nazwa.getTextContent());
+	}
+	
+	public void removeSchema() {
+		if(drzewo.hasAttribute("xmlns:xsi")) {
+			drzewo.removeAttribute("xmlns:xsi");
+		}
+		if(drzewo.hasAttribute("xsi:noNamespaceSchemaLocation")) {
+			drzewo.removeAttribute("xsi:noNamespaceSchemaLocation");
+		}
+		System.out.println("Usuniêto schemat.");
+	}
+
+	public void setName() {
+		Element nazwa = (Element) drzewo.getFirstChild().getNextSibling();
+		System.out.println("Obecna nazwa: " + nazwa.getTextContent() + ". Podaj now¹ nazwê:");
+		try {
+			String nn = reader.readLine();
+			if (nn.isEmpty()) {
+				System.out.println("Nazwa nie mo¿e byæ pusta!");
+			}
+			else {
+				nazwa.setTextContent(nn);
+				System.out.println("Nowa nazwa: " + nn);
+			}
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
 	}
 	
 	public void createSpc() {

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/css" href="projekt.css"?><!DOCTYPE drzewo SYSTEM "projekt.dtd">
-<drzewo bcg="./obrazki/drzewo.jpg" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="projekt.xsd">
-    <dnazwa>Caseazaury</dnazwa>
+<drzewo bcg="./obrazki/drzewo.jpg">
+    <dnazwa>Caseasauria</dnazwa>
     <ostatnia_modyfikacja>2019-12-30T09:14:53</ostatnia_modyfikacja>
     <klady id="k">
         <klad id="k1" okresy="o1 o2" wymarly="1">

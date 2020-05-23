@@ -1,5 +1,6 @@
 package projektXML;
 
+import java.io.BufferedReader;
 import java.io.FileOutputStream;
 
 //rejestr do tworzenia implementacji DOM
@@ -36,25 +37,41 @@ public class Dokument {
 	private String input;
 	private String output;
 	private String schema;
+    private BufferedReader reader;
+    private boolean schema_present;
 	
 	
-	public Dokument(String input_p, String output_p) {
+	public Dokument(String input_p, String output_p, BufferedReader reader_p) {
 		input = input_p;
 		output = output_p;
-		read(input);
-		setTree();
+		reader = reader_p;
+		schema_present = false;
+		read();
 	}
 	
-	public Dokument(String input_p, String output_p, String schema_p) {
+	public Dokument(String input_p, String output_p, String schema_p, BufferedReader reader_p) {
 		input = input_p;
 		output = output_p;
 		schema = schema_p;
+		reader = reader_p;
+		schema_present = true;
 		read();
-		setTree();
+	}
+	
+	public BufferedReader getReader() {
+		return reader;
 	}
 	
 	private void setTree() {
 		drzewo = new Drzewo(this);
+	}
+	
+	public void printRootName() {
+		drzewo.printName();
+	}
+	
+	public void changeRootName() {
+		drzewo.setName();
 	}
 	
 	public void newSpc() {
@@ -62,6 +79,10 @@ public class Dokument {
 	}
 	public void remSpc() {
 		drzewo.delSpc();
+	}
+
+	public void removeOutputSchema() {
+		drzewo.removeSchema();
 	}
 	
 	public Element newElement(String nazwa) {
@@ -76,7 +97,7 @@ public class Dokument {
 		return dokument.getDocumentElement();
 	}
 	
-	private void read(String input) { //Bez schematu.
+	public void read() { //Ze schematem.
 		try {
 			//Uzyskanie buildera.
 			registry = DOMImplementationRegistry.newInstance();
@@ -90,33 +111,14 @@ public class Dokument {
 			config = builder.getDomConfig();
 			config.setParameter("error-handler", errorHandler);
 			config.setParameter("validate", Boolean.TRUE);
+			if(schema_present) {
+				config.setParameter("schema-type", "http://www.w3.org/2001/XMLSchema");
+				config.setParameter("schema-location",  schema);
+			}
 
 			//Sparsowanie dokumentu do 'dokument'.
 			dokument = builder.parseURI(input);
-		} catch (Exception ex) {
-			ex.printStackTrace();
-		}
-	}
-	
-	private void read() { //Ze schematem.
-		try {
-			//Uzyskanie buildera.
-			registry = DOMImplementationRegistry.newInstance();
-			impl = (DOMImplementationLS) registry.getDOMImplementation("LS");
-			builder = impl.createLSParser(DOMImplementationLS.MODE_SYNCHRONOUS, null);
-
-			//Ustawienie lapacza bledow.
-			errorHandler = getErrorHandler();
-		
-			//Ustawienie parameterow.
-			config = builder.getDomConfig();
-			config.setParameter("error-handler", errorHandler);
-			config.setParameter("validate", Boolean.TRUE);
-			config.setParameter("schema-type", "http://www.w3.org/2001/XMLSchema");
-			config.setParameter("schema-location",  schema);
-
-			//Sparsowanie dokumentu do 'dokument'.
-			dokument = builder.parseURI(input);
+			setTree();
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}

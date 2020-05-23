@@ -129,5 +129,9 @@ Metody:
 -getElementsByTagName()
 -getTextContent()
 -getAttribute()
-
+-removeChildNode()
+-getFirstChild()
+-getNextSibling()
+-hasAttribute()
+-removeAttribute()
 -----------MAX(14)
