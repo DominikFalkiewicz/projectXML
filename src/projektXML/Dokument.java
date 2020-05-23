@@ -54,7 +54,7 @@ public class Dokument {
 	}
 	
 	private void setTree() {
-		drzewo = new Drzewo(dokument.getDocumentElement(), this);
+		drzewo = new Drzewo(this);
 	}
 	
 	public void newSpc() {
@@ -67,6 +67,10 @@ public class Dokument {
 	
 	public Element getID(String id) {
 		return dokument.getElementById(id);
+	}
+	
+	public Element getRoot() {
+		return dokument.getDocumentElement();
 	}
 	
 	private void read(String input) { //Bez schematu.

@@ -12,13 +12,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Drzewo {
+    private BufferedReader reader;
+    
 	private Dokument master;
 	private Element drzewo;
-    private BufferedReader reader;
+    private Klady klady;
+    private Element gatunki;
+    private Element nisze;
+    private Element rangi;
+    private Element okresy;
+    
 	
-	public Drzewo(Element drzewo_p, Dokument master_p) {
-		drzewo = drzewo_p;
+	public Drzewo(Dokument master_p) {
 		master = master_p;
+		drzewo = master.getRoot();
+		klady = new Klady(master.getID("k"));
+		gatunki = master.getID("g");
+		nisze = master.getID("n");
+		rangi = master.getID("r");
+		okresy = master.getID("o");
 	    reader = new BufferedReader(new InputStreamReader(System.in));
 	}
 	
@@ -27,7 +39,6 @@ public class Drzewo {
 			System.out.println("GENERATOR GATUNKU");
 			//Ustalenie rodzaju:
 			String ranga_rodzaj_id = null;
-			Element rangi = master.getID("r");
 			Element ranga;
 			NodeList lista_rang = rangi.getElementsByTagName("ranga");
 			for(int i = 0; i < lista_rang.getLength(); i++) {
@@ -44,19 +55,10 @@ public class Drzewo {
 
 			String klad_rodzaj_id = null;
 			String klad_rodzaj_nazwa = null;
-			Element klady = master.getID("k");
 			Element klad;
-			NodeList lista_kladow = klady.getElementsByTagName("klad");
-			List<String> lista_rodzajow = new ArrayList<String>();
-			List<String> lista_nazw_rodzajow = new ArrayList<String>();
-			for(int i = 0; i < lista_kladow.getLength(); i++) {
-				klad = (Element) lista_kladow.item(i);
-				if(klad.getAttribute("ranga").equals(ranga_rodzaj_id)) {
-					lista_rodzajow.add(klad.getAttribute("id"));
-					lista_nazw_rodzajow.add(klad.getElementsByTagName("knazwa").item(0).getTextContent());
-				}
-			}
-			if(lista_rodzajow.size() == 0) {
+			List<String> lista_id_rodzajow = klady.getRankIdList(ranga_rodzaj_id);
+			List<String> lista_nazw_rodzajow = klady.getRankNameList(ranga_rodzaj_id);
+			if(lista_id_rodzajow.size() == 0) {
 				System.out.println("W tej chwili w drzewie nie ma ¿adnego rodzaju. Nie mo¿na utwo¿yæ gatunku.");
 				return;
 			}
@@ -72,7 +74,7 @@ public class Drzewo {
 			for(int i = 0; i < lista_nazw_rodzajow.size(); i++) {
 				if(lista_nazw_rodzajow.get(i).equals(proponowany_rodzaj)) {
 					rodzaj_znaleziony = true;
-					rodzaj_id = lista_rodzajow.get(i);
+					rodzaj_id = lista_id_rodzajow.get(i);
 					break;
 				}
 			}
@@ -82,7 +84,7 @@ public class Drzewo {
 				for(int i = 0; i < lista_nazw_rodzajow.size(); i++) {
 					if(lista_nazw_rodzajow.get(i).equals(proponowany_rodzaj)) {
 						rodzaj_znaleziony = true;
-						rodzaj_id = lista_rodzajow.get(i);
+						rodzaj_id = lista_id_rodzajow.get(i);
 						break;
 					}
 				}
@@ -99,7 +101,6 @@ public class Drzewo {
 			nazwa = proponowana_nazwa;
 			
 			//Ustalenie niszy:
-			Element nisze = master.getID("n");
 			Element nisza;
 			NodeList lista_nisz = nisze.getElementsByTagName("nisza");
 			List<String> lista_nazw_nisz = new ArrayList<String>();
