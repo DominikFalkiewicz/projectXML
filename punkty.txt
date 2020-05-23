@@ -113,3 +113,12 @@ Praktyczne uzycie funkcji i predykatow XPath:
 -contains()
 -count()
 -----------MAX(6)
+
+DOM:
+Pogram:
+-----------MAX(-)
+
+Metody:
+
+
+-----------MAX(14)
