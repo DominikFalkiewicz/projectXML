@@ -81,30 +81,35 @@
         <xsd:sequence>
             <xsd:element name="klad" type="klad" minOccurs="1" maxOccurs="unbounded"/>
         </xsd:sequence>
+        <xsd:attribute name="id" type="xsd:ID" use="required"/>
     </xsd:complexType>
     
     <xsd:complexType name="gatunki">
         <xsd:sequence>
             <xsd:element name="gatunek" type="gatunek" minOccurs="0" maxOccurs="unbounded"/>
         </xsd:sequence>
+        <xsd:attribute name="id" type="xsd:ID" use="required"/>
     </xsd:complexType>
     
     <xsd:complexType name="nisze">
         <xsd:sequence>
             <xsd:element name="nisza" type="nisza" minOccurs="0" maxOccurs="unbounded"/>
         </xsd:sequence>
+        <xsd:attribute name="id" type="xsd:ID" use="required"/>
     </xsd:complexType>
     
     <xsd:complexType name="rangi">
         <xsd:sequence>
             <xsd:element name="ranga" type="ranga" minOccurs="0" maxOccurs="unbounded"/>
         </xsd:sequence>
+        <xsd:attribute name="id" type="xsd:ID" use="required"/>
     </xsd:complexType>
     
     <xsd:complexType name="okresy">
         <xsd:sequence>
             <xsd:element name="okres" type="okres" minOccurs="1" maxOccurs="unbounded"/>
         </xsd:sequence>
+        <xsd:attribute name="id" type="xsd:ID" use="required"/>
     </xsd:complexType>
 
     <!-- OBRAZKI -->

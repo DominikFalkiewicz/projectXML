@@ -79,7 +79,7 @@ img.symbol {
 img.portret {
     display: inline-block;
     float: top-left;
-    width: 300;
+    width: 300px;
     height: auto;
     overflow: hidden;
     vertical-align: top;

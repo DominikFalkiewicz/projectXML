@@ -4,7 +4,7 @@
 <drzewo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="projekt.xsd" bcg="./obrazki/drzewo.jpg">
     <dnazwa>Caseazaury</dnazwa>
     <ostatnia_modyfikacja>2019-12-30T09:14:53</ostatnia_modyfikacja>
-    <klady>
+    <klady id="k">
         <klad id="k1" okresy="o1 o2" wymarly="1">
             <knazwa>Caseasauria</knazwa>
         </klad>
@@ -24,7 +24,7 @@
             <knazwa>Oedaleops</knazwa>
         </klad>
     </klady>
-    <gatunki>
+    <gatunki id="g">
         <gatunek rodzaj="k5" nisza="n1" wymarly="1" img="./obrazki/Eothyris.jpg" imf="./obrazki/EothyrisF.jpg">
             <gnazwa>parkeyi</gnazwa>
             <data_odkrycia>1937-06-21</data_odkrycia>
@@ -46,7 +46,7 @@
             <data_odkrycia>1953-04-12</data_odkrycia>
         </gatunek>
     </gatunki>
-    <nisze>
+    <nisze id="n">
         <nisza id="n1" img="./obrazki/drapieżnik.png">
             <nnazwa>Drapieżnik</nnazwa>
             <nopis>Zwierzęta odżywiające się innymi zwierzętami.</nopis>
@@ -60,7 +60,7 @@
             <nopis>Zwieżęta odżywiające się owadami.</nopis>
         </nisza>
     </nisze>
-    <rangi>
+    <rangi id="r">
         <ranga id="r1">
             <rnazwa>Rodzaj</rnazwa>
         </ranga>
@@ -68,7 +68,7 @@
             <rnazwa>Rodzina</rnazwa>
         </ranga>
     </rangi>
-    <okresy>
+    <okresy id="o">
         <okres id="o1" skrot="C">
             <onazwa>Karbon</onazwa>
             <poczatek sufiks="miliona lat temu">358.9</poczatek>

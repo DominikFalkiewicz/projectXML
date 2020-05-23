@@ -63,6 +63,7 @@ Praktyczne uzycie typow wbudowanych:
 -xsd:unsignedLong
 -xsd:dateTime
 -----------MAX(6)
+-xsd:ID
 
 CSS:
 Estetyka:

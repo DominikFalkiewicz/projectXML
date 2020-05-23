@@ -29,6 +29,7 @@
 <!ATTLIST drzewo bcg CDATA #IMPLIED >
 
 <!ELEMENT klady (klad+) >
+<!ATTLIST klady id CDATA #FIXED "k" >
 <!ELEMENT klad (knazwa) >
 <!ELEMENT knazwa (#PCDATA) >
 <!ATTLIST klad id ID #REQUIRED >
@@ -38,6 +39,7 @@
 <!ATTLIST klad wymarly CDATA #REQUIRED >
 
 <!ELEMENT gatunki (gatunek*) >
+<!ATTLIST gatunki id CDATA #FIXED "g" >
 <!ELEMENT gatunek (gnazwa, data_odkrycia?, najwcz_datowanie?) >
 <!ELEMENT gnazwa (#PCDATA) >
 <!ELEMENT data_odkrycia (#PCDATA) >
@@ -49,6 +51,7 @@
 <!ATTLIST gatunek wymarly CDATA #REQUIRED >
 
 <!ELEMENT nisze (nisza*) >
+<!ATTLIST nisze id CDATA #FIXED "n" >
 <!ELEMENT nisza (nnazwa, nopis?) >
 <!ELEMENT nnazwa (#PCDATA) >
 <!ELEMENT nopis (#PCDATA) >
@@ -56,11 +59,13 @@
 <!ATTLIST nisza img CDATA #REQUIRED >
 
 <!ELEMENT rangi (ranga+) >
+<!ATTLIST rangi id CDATA #FIXED "r" >
 <!ELEMENT ranga (rnazwa) >
 <!ELEMENT rnazwa (#PCDATA) >
 <!ATTLIST ranga id ID #REQUIRED >
 
 <!ELEMENT okresy (okres+) >
+<!ATTLIST okresy id CDATA #FIXED "o" >
 <!ELEMENT okres (onazwa, poczatek, koniec) >
 <!ELEMENT onazwa (#PCDATA) >
 <!ELEMENT poczatek (#PCDATA) >
