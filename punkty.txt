@@ -120,6 +120,15 @@ Pogram:
 -----------MAX(-)
 
 Metody:
-
+-getDocumentElement()
+-createElement()
+-appendChild()
+-setAttribute()
+-setTextContent()
+-getElementById()
+-getElementsByTagName()
+-getChildNodes()
+-getTextContent()
+-getAttribute()
 
 -----------MAX(14)

@@ -3,8 +3,8 @@ package projektXML;
 public class main {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		Dokument dokument = new Dokument(".\\projekt.xml", ".\\projekt_out.xml", ".\\projekt.xsd");
+		dokument.newSpc();
 	}
 
 }

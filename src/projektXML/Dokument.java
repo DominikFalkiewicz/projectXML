@@ -32,24 +32,32 @@ public class Dokument {
 	private DOMErrorHandler errorHandler;
 	private LSSerializer domWriter;
 	private LSOutput dOut;
-	static String input = ".\\src\\xml_in\\zad1.xml";
-	static String output = ".\\src\\xml_out\\zad1.xml";
 	
 	
 	public Dokument(String input, String output) {
 		read(input);
+		setTree();
 	}
 	
 	public Dokument(String input, String output, String schema) {
 		read(input, schema);
+		setTree();
 	}
 	
 	private void setTree() {
-		drzewo = new Drzewo(dokument.getDocumentElement());
+		drzewo = new Drzewo(dokument.getDocumentElement(), this);
 	}
 	
-	private Drzewo getTree() {
-		return drzewo;
+	public void newSpc() {
+		drzewo.createSpc();
+	}
+	
+	public Element newElement(String nazwa) {
+		return dokument.createElement(nazwa);
+	}
+	
+	public Element getID(String id) {
+		return dokument.getElementById(id);
 	}
 	
 	private void read(String input) { //Bez schematu.
